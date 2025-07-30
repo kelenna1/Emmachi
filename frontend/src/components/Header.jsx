@@ -24,7 +24,7 @@ const Header = () => {
             <img src={logo} alt="Emmachi Imperial" className="w-10 h-10" />
             <div className="flex flex-col">
               <span className="text-xl font-bold text-gray-800">Emmachi Imperial</span>
-              <span className="text-xs text-gray-600">Premium Food Ingredients</span>
+              <span className="text-xs text-gray-600">Reliable Distribution</span>
             </div>
           </Link>
 
@@ -49,7 +49,7 @@ const Header = () => {
           <div className="hidden lg:flex items-center space-x-4">
             <div className="flex items-center space-x-2 text-sm text-gray-600">
               <Phone className="w-4 h-4" />
-              <span>+234 803 428 2951</span>
+              <span>+234 816 122 0145</span>
             </div>
             <div className="flex items-center space-x-2 text-sm text-gray-600">
               <Mail className="w-4 h-4" />

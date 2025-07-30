@@ -15,7 +15,7 @@ const Footer = () => {
                 <img src={logo} alt="Emmachi Imperial" className="w-10 h-10 object-contain" />
                 <div className="flex flex-col">
                   <span className="text-xl font-bold text-white">Emmachi Imperial</span>
-                  <span className="text-xs text-gray-400">Premium Food Ingredients</span>
+                  <span className="text-xs text-gray-400">Reliable Distribution</span>
                 </div>
               </Link>
             </div>
@@ -44,8 +44,8 @@ const Footer = () => {
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 text-yellow-400" />
                 <span className="text-sm">
-                    +234 803 428 2951,<br/>
-                    08161220145</span>
+                    +234 816 122 0145,<br/>
+                    </span>
                 </div>
               <div className="flex items-center space-x-2">
                 <Mail className="w-4 h-4 text-yellow-400" />

@@ -106,10 +106,10 @@ const ShopPage = () => {
       <div className="bg-gradient-to-br from-beige-200 via-green-700 to-gold-200 shadow-sm py-8 md:py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-3 md:mb-4" data-aos="fade-down">
-            Premium Food Ingredients
+            Our Products
           </h1>
           <p className="text-base md:text-lg text-white max-w-2xl mx-auto" data-aos="fade-down" data-aos-delay="100">
-            Browse our comprehensive catalog of high-quality ingredients. Call to place your wholesale order today.
+            Browse our catalog of manufacturing products. Please Call to place your order today.
           </p>
         </div>
       </div>

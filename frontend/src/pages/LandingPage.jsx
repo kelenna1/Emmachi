@@ -1,11 +1,15 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Users, Award, Truck, Shield, Star, CheckCircle } from 'lucide-react';
+import { ArrowRight, Users, Award, Truck, Shield, CheckCircle } from 'lucide-react';
 import load from '../assets/flour.jpeg';
 import dangote from '../assets/dangote.png';
 import bua from '../assets/bua.png';
 import mama from '../assets/mama.jpeg';
 import business from '../assets/Business.jpeg';
 import Sugar from '../assets/Sugar.jpeg';
+import flour from '../assets/flourmills.png';
+import yeastt from '../assets/yeast.avif';
+import yeast from '../assets/yeast.jpg';
+import nono from '../assets/nono.jpg';
 import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -20,11 +24,11 @@ const LandingPage = () => {
   }, []);
 
   const partners = [
-    { name: 'Dangote', logo: dangote },
     { name: 'Bua', logo: bua },
+    { name: 'Dangote', logo: dangote },
     { name: 'Mama Gold', logo: mama },
-    { name: 'Golden Penny', logo: 'https://images.pexels.com/photos/3184436/pexels-photo-3184436.jpeg?auto=compress&cs=tinysrgb&w=400' },
-    { name: 'STK Royal', logo: 'https://images.pexels.com/photos/3184436/pexels-photo-3184436.jpeg?auto=compress&cs=tinysrgb&w=400' },
+    { name: 'Flour Mills', logo: flour },
+    { name: 'STK Royal', logo: yeastt },
   ];
 
   const products = [
@@ -43,35 +47,20 @@ const LandingPage = () => {
     {
       name: 'Active Yeast',
       description: 'Fresh and dried yeast for all baking needs',
-      image: 'https://images.pexels.com/photos/4198020/pexels-photo-4198020.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: yeast,
       features: ['High activity', 'Extended shelf life', 'Consistent performance'],
     },
   ];
 
-  const testimonials = [
-    {
-      name: 'Chief Adebayo',
-      company: 'Golden Crust Bakery',
-      rating: 5,
-      comment: 'Emmachi Imperial has been our trusted supplier for over 5 years. Their quality is unmatched and delivery is always on time.',
-    },
-    {
-      name: 'Mrs. Okonkwo',
-      company: 'Sweet Treats Ltd',
-      rating: 5,
-      comment: 'The quality of their flour transformed our bread production. Our customers notice the difference immediately.',
-    },
-    {
-      name: 'Mr. Hassan',
-      company: 'Northern Foods',
-      rating: 5,
-      comment: 'Professional service, competitive prices, and exceptional quality. They understand the needs of food manufacturers.',
-    },
+  const highlights = [
+    { icon: <Award className="w-6 h-6 text-gold-600" />, title: "Quality Assured", text: "Every product meets international food safety standards" },
+    { icon: <Truck className="w-6 h-6 text-green-600" />, title: "Reliable Delivery", text: "On-time delivery across Nigeria with proper handling" },
+    { icon: <Shield className="w-6 h-6 text-green-600" />, title: "Trusted Partner", text: "Long-term relationships with 1,000+ businesses" }
   ];
 
   const stats = [
-    { number: '10+', label: 'Years of Experience' },
-    { number: '1,000+', label: 'Business Partners' },
+    { number: '30+', label: 'Years of Experience' },
+    // { number: '', label: 'Business Partners' },
     { number: '50+', label: 'Premium Products' },
     { number: '99.9%', label: 'Quality Assurance' },
   ];
@@ -94,14 +83,14 @@ const LandingPage = () => {
             <div className="space-y-8" data-aos="fade-right">
               <div className="space-y-4">
                 <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
-                  Premium Ingredients for
+                  Reliable Distribution
                   <span className="text-white bg-clip-text bg-gradient-to-r from-gold-600 to-black">
-                    {' '}Africa's Finest Bakers
+                    {' '}You Can Trust
                   </span>
                 </h1>
                 <p className="text-lg md:text-xl text-black max-w-lg">
-                  Your trusted partner for high-quality food ingredients in Nigeria.
-                  Serving professional bakers, restaurants, and food manufacturers for over 10 years.
+                  We are your dependable partner in the FMCG sector. For over three decades, 
+                  we’ve proudly supplied high-quality food ingredients and industrial raw materials to manufacturers, bakeries, distilleries, restaurants, and institutions across Nigeria.
                 </p>
               </div>
 
@@ -149,7 +138,7 @@ const LandingPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div data-aos="fade-right">
               <img
-                src={business}
+                src={nono}
                 alt="Food processing facility"
                 className="w-full h-64 md:h-96 object-cover rounded-2xl shadow-lg"
               />
@@ -160,9 +149,7 @@ const LandingPage = () => {
                   About Emmachi Imperial
                 </h2>
                 <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-                  For over a decade, Emmachi Imperial has been Nigeria's trusted distributor of premium food ingredients.
-                  Based in Lagos, we serve bakeries, restaurants, and food manufacturers across the nation with
-                  uncompromising quality and reliability.
+                  Welcome to Emmachi imperial enterprise, we are your dependable partner in the FMCG sector. For over three decades, we’ve proudly supplied high-quality food ingredients and industrial raw materials to manufacturers, bakeries, distilleries, restaurants, and institutions across Nigeria.
                 </p>
               </div>
 
@@ -278,36 +265,31 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* Highlights Section */}
       <section className="py-16 md:py-20 bg-gradient-to-br from-beige-100 to-green-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 md:mb-16" data-aos="fade-up">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              What Our Customers Say
+              Why Choose Emmachi Imperial
             </h2>
             <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
-              Serving 1,000+ businesses across Nigeria with excellence
+              Serving businesses across Nigeria with excellence
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            {testimonials.map((testimonial, index) => (
+            {highlights.map((highlight, index) => (
               <div 
                 key={index} 
                 className="bg-white rounded-xl md:rounded-2xl p-4 md:p-6 shadow-lg hover:shadow-xl transition-shadow"
                 data-aos="zoom-in"
                 data-aos-delay={index * 100}
               >
-                <div className="flex items-center mb-3 md:mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 md:w-5 md:h-5 text-amber-400 fill-current" />
-                  ))}
+                <div className="flex justify-center mb-3 md:mb-4">
+                  {highlight.icon}
                 </div>
-                <p className="text-sm md:text-base text-gray-600 mb-3 md:mb-4 italic">"{testimonial.comment}"</p>
-                <div>
-                  <p className="font-semibold text-gray-900">{testimonial.name}</p>
-                  <p className="text-xs md:text-sm text-gray-600">{testimonial.company}</p>
-                </div>
+                <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-2 text-center">{highlight.title}</h3>
+                <p className="text-sm md:text-base text-gray-600 text-center">{highlight.text}</p>
               </div>
             ))}
           </div>
@@ -321,7 +303,7 @@ const LandingPage = () => {
             Ready to Partner with Us?
           </h2>
           <p className="text-base md:text-xl text-black/90 mb-6 md:mb-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-            Join thousands of satisfied customers who trust Emmachi Imperial for their food ingredient needs
+            Join a satisfied group of customers who trust Emmachi imperial for reliable and consistent supply
           </p>
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center" data-aos="fade-up" data-aos-delay="200">
             <Link
@@ -335,7 +317,7 @@ const LandingPage = () => {
               href="tel:+2348034282951"
               className="inline-flex items-center px-6 py-3 md:px-8 md:py-4 border-2 border-white text-black font-semibold rounded-lg hover:bg-white hover:text-gray-900 transition-all duration-200"
             >
-              Call Now: +234 803 428 2951
+              Call Now: +234 8161220145
             </a>
           </div>
         </div>
