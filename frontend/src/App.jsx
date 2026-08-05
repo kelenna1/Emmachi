@@ -2,6 +2,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import LandingPage from './pages/LandingPage';
 import ShopPage from './pages/shopPage';
+import AboutPage from './pages/AboutPage';
 import Login from './components/Login';
 import ProductDetail from './pages/ProductDetail';
 import AdminProductDetail from './pages/AdminProductDetail';
@@ -18,8 +19,8 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<LandingPage />} />
+          <Route path="/about" element={<AboutPage />} />
           <Route path="/shop" element={<ShopPage />} />
-          <Route path="/shop/product/:id" element={<ProductDetail />} />
           <Route path="/login" element={<Login />} />
           <Route element={<ProtectedRoutes />}>
             <Route path="/admin" element={<AdminDashboard />} />

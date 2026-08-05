@@ -21,17 +21,17 @@ const Footer = () => {
             </div>
 
             <p className="text-gray-300 mb-4 max-w-md">
-              Your trusted partner for premium food ingredients in Nigeria. Serving bakeries, 
-              restaurants, and food manufacturers with quality products for over 10 years.
-            </p>
+            Your trusted partner for premium food ingredients in Nigeria. Serving bakeries, 
+            restaurants, and food manufacturers with wholesale supply for over 30 years.
+          </p>
             <div className="flex space-x-4">
-              <div className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-yellow-600 transition-colors cursor-pointer">
+              <div className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-emerald-600 transition-colors cursor-pointer">
                 <span className="text-sm font-bold">f</span>
               </div>
-              <div className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-yellow-600 transition-colors cursor-pointer">
+              <div className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-emerald-600 transition-colors cursor-pointer">
                 <span className="text-sm font-bold">@</span>
               </div>
-              <div className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-yellow-600 transition-colors cursor-pointer">
+              <div className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-emerald-600 transition-colors cursor-pointer">
                 <span className="text-sm font-bold">in</span>
               </div>
             </div>
@@ -39,48 +39,53 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
-            <div className="space-y-3">
-              <div className="flex items-center space-x-2">
-                <Phone className="w-4 h-4 text-yellow-400" />
-                <span className="text-sm">
-                    +234 816 122 0145,<br/>
-                    </span>
-                </div>
-              <div className="flex items-center space-x-2">
-                <Mail className="w-4 h-4 text-yellow-400" />
-                <span className="text-sm">emmachi2025@gmail.com</span>
-              </div>
-              <div className="flex items-start space-x-2">
-                <MapPin className="w-4 h-4 text-yellow-400 mt-0.5" />
-                <span className="text-sm">
-                  123 Industrial Estate,<br />
-                  Ikeja, Lagos, Nigeria
+            <h3 className="text-lg font-semibold mb-4 text-white">Contact Info</h3>
+            <div className="space-y-4">
+              <div className="flex items-start space-x-3">
+                <Phone className="w-4 h-4 text-emerald-500 mt-1 shrink-0" />
+                <span className="text-sm text-gray-300">
+                  +234 816 122 0145
                 </span>
               </div>
-              <div className="flex items-center space-x-2">
-                <Clock className="w-4 h-4 text-yellow-400" />
-                <span className="text-sm">Mon - Fri: 8AM - 6PM</span>
+              <div className="flex items-start space-x-3">
+                <Mail className="w-4 h-4 text-emerald-500 mt-1 shrink-0" />
+                <span className="text-sm text-gray-300">emmachi2025@gmail.com</span>
+              </div>
+              <div className="flex items-start space-x-3">
+                <MapPin className="w-4 h-4 text-emerald-500 mt-1 shrink-0" />
+                <span className="text-sm text-gray-300">
+                  <span className="font-semibold text-gray-200 block mb-0.5">Iddo Outlet:</span>
+                  Heyden trailer park, Iddo underbridge, Iddo, Lagos
+                </span>
+              </div>
+              <div className="flex items-start space-x-3">
+                <MapPin className="w-4 h-4 text-emerald-500 mt-1 shrink-0" />
+                <span className="text-sm text-gray-300">
+                  <span className="font-semibold text-gray-200 block mb-0.5">Suru Outlet:</span>
+                  A40, army mammy market, Suru Alaba
+                </span>
               </div>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-4 text-white">Quick Links</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="text-sm text-gray-300 hover:text-yellow-400 transition-colors">About Us</a></li>
-              <li><a href="#" className="text-sm text-gray-300 hover:text-yellow-400 transition-colors">Our Products</a></li>
-              <li><a href="#" className="text-sm text-gray-300 hover:text-yellow-400 transition-colors">Partners</a></li>
-              <li><a href="#" className="text-sm text-gray-300 hover:text-yellow-400 transition-colors">Testimonials</a></li>
-              <li><a href="#" className="text-sm text-gray-300 hover:text-yellow-400 transition-colors">Contact</a></li>
+              <li><Link to="/about" className="text-sm text-gray-300 hover:text-emerald-400 transition-colors">About Us</Link></li>
+              <li><Link to="/shop" className="text-sm text-gray-300 hover:text-emerald-400 transition-colors">Our Products</Link></li>
+              <li><Link to="/contact" className="text-sm text-gray-300 hover:text-emerald-400 transition-colors">Contact Us</Link></li>
+              <li><a href="https://wa.me/2348161220145" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-300 hover:text-emerald-400 transition-colors">Order on WhatsApp</a></li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-8 pt-6 text-center">
+        <div className="border-t border-gray-800 mt-12 pt-8 text-center flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-gray-400">
-            © 2024 Emmachi Imperial. All rights reserved. | Proudly serving Nigeria's food industry.
+            © {new Date().getFullYear()} Emmachi Imperial. All rights reserved.
+          </p>
+          <p className="text-sm text-gray-500">
+            Proudly serving Nigeria's food industry since 1994.
           </p>
         </div>
       </div>
