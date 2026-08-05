@@ -25,13 +25,13 @@ const Footer = () => {
             restaurants, and food manufacturers with wholesale supply for over 30 years.
           </p>
             <div className="flex space-x-4">
-              <div className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-emerald-600 transition-colors cursor-pointer">
+              <div className="w-8 h-8 bg-gray-800 rounded-md flex items-center justify-center hover:bg-emerald-600 transition-colors cursor-pointer">
                 <span className="text-sm font-bold">f</span>
               </div>
-              <div className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-emerald-600 transition-colors cursor-pointer">
+              <div className="w-8 h-8 bg-gray-800 rounded-md flex items-center justify-center hover:bg-emerald-600 transition-colors cursor-pointer">
                 <span className="text-sm font-bold">@</span>
               </div>
-              <div className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-emerald-600 transition-colors cursor-pointer">
+              <div className="w-8 h-8 bg-gray-800 rounded-md flex items-center justify-center hover:bg-emerald-600 transition-colors cursor-pointer">
                 <span className="text-sm font-bold">in</span>
               </div>
             </div>
