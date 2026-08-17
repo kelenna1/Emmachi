@@ -78,6 +78,58 @@ const AboutPage = () => {
         <meta property="og:title" content="About Emmachi Imperial — Our Story & Wholesale Network" />
         <meta property="og:description" content="30+ years distributing premium wholesale food ingredients across South-West Nigeria. Meet Emmachi Imperial." />
         <meta property="og:url" content="https://emmachiimperial.com/about" />
+
+        {/* ═══ JSON-LD: Organization ═══ */}
+        <script type="application/ld+json">{`
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "@id": "https://emmachiimperial.com/#business",
+            "name": "Emmachi Imperial",
+            "description": "Premium wholesale food ingredient distributor serving bakeries, restaurants, and food manufacturers across South-West Nigeria since 1994.",
+            "url": "https://emmachiimperial.com",
+            "logo": "https://emmachiimperial.com/emmachi.svg",
+            "foundingDate": "1994",
+            "telephone": "+2348161220145",
+            "email": "emmachi2025@gmail.com",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Heyden trailer park, Iddo underbridge",
+              "addressLocality": "Lagos",
+              "addressRegion": "Lagos",
+              "addressCountry": "NG"
+            },
+            "numberOfEmployees": {
+              "@type": "QuantitativeValue",
+              "minValue": 10
+            },
+            "areaServed": {
+              "@type": "AdministrativeArea",
+              "name": "South-West Nigeria"
+            }
+          }
+        `}</script>
+
+        {/* ═══ JSON-LD: Breadcrumb ═══ */}
+        <script type="application/ld+json">{`
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://emmachiimperial.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "About Us"
+              }
+            ]
+          }
+        `}</script>
       </Helmet>
 
       {/* ==================== SECTION 1: IMMERSIVE HERO ==================== */}

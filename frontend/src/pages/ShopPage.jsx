@@ -186,6 +186,142 @@ export default function ShopPage() {
         <meta property="og:title" content="Wholesale Product Catalog | Emmachi Imperial" />
         <meta property="og:description" content="Dangote Sugar, Golden Penny Flour, Mama Gold Rice & more. Browse our full wholesale catalog and order via WhatsApp." />
         <meta property="og:url" content="https://emmachiimperial.com/shop" />
+
+        {/* ═══ JSON-LD: Product Catalog ═══ */}
+        <script type="application/ld+json">{`
+          {
+            "@context": "https://schema.org",
+            "@type": "OfferCatalog",
+            "name": "Emmachi Imperial Wholesale Product Catalog",
+            "description": "Complete wholesale catalog of premium food ingredients distributed by Emmachi Imperial across Lagos and South-West Nigeria.",
+            "url": "https://emmachiimperial.com/shop",
+            "provider": {
+              "@id": "https://emmachiimperial.com/#business"
+            },
+            "numberOfItems": 14,
+            "itemListElement": [
+              {
+                "@type": "Product",
+                "name": "Dangote Refined Sugar",
+                "brand": { "@type": "Brand", "name": "Dangote" },
+                "category": "Sugar",
+                "description": "Premium refined granulated sugar in 50kg wholesale bags. Ideal for bakeries, food processors, and commercial buyers."
+              },
+              {
+                "@type": "Product",
+                "name": "BUA Premium Sugar",
+                "brand": { "@type": "Brand", "name": "BUA" },
+                "category": "Sugar",
+                "description": "High-purity refined sugar from BUA Sugar Refinery. Consistent quality for industrial food and beverage production."
+              },
+              {
+                "@type": "Product",
+                "name": "Golden Penny Sugar",
+                "brand": { "@type": "Brand", "name": "Golden Penny" },
+                "category": "Sugar",
+                "description": "Fortified white refined sugar from Flour Mills of Nigeria. Trusted for commercial baking and confectionery."
+              },
+              {
+                "@type": "Product",
+                "name": "Golden Penny Prime Flour",
+                "brand": { "@type": "Brand", "name": "Golden Penny" },
+                "category": "Flour",
+                "description": "Versatile premium wheat flour in 50kg bags. Superior gluten content for bread, pastries, and general baking."
+              },
+              {
+                "@type": "Product",
+                "name": "Honeywell Bakers' Delight Flour",
+                "brand": { "@type": "Brand", "name": "Honeywell" },
+                "category": "Flour",
+                "description": "Specially formulated bread flour for high volume yield, excellent oven spring, and soft crumb structure."
+              },
+              {
+                "@type": "Product",
+                "name": "Pure Prima Wheat Flour",
+                "brand": { "@type": "Brand", "name": "Dufil Prima" },
+                "category": "Flour",
+                "description": "High-grade NAFDAC registered wheat flour (50kg). Perfect for commercial baking, snacks, and pasta production."
+              },
+              {
+                "@type": "Product",
+                "name": "Honeywell Superfine Flour",
+                "brand": { "@type": "Brand", "name": "Honeywell" },
+                "category": "Flour",
+                "description": "Extra fine white flour ideal for delicate cakes, puff pastries, chin-chin, and confectionery recipes."
+              },
+              {
+                "@type": "Product",
+                "name": "Mama Africa Thai Premium Rice",
+                "brand": { "@type": "Brand", "name": "Mama Africa" },
+                "category": "Rice",
+                "description": "100% sortexed long grain white rice (50kg). Clean, stone-free, and high yielding for catering and retail."
+              },
+              {
+                "@type": "Product",
+                "name": "Royal Stallion Rice",
+                "brand": { "@type": "Brand", "name": "Stallion" },
+                "category": "Rice",
+                "description": "Premium parboiled long grain rice in 50kg bags. Consistent grain length, perfect for restaurants and food vendors."
+              },
+              {
+                "@type": "Product",
+                "name": "Devon Kings Vegetable Oil",
+                "brand": { "@type": "Brand", "name": "PZ Wilmar" },
+                "category": "Cooking Oil",
+                "description": "Pure refined vegetable oil in commercial jerrycans and drums. High smoke point for deep frying and cooking."
+              },
+              {
+                "@type": "Product",
+                "name": "Golden Penny Vegetable Oil",
+                "brand": { "@type": "Brand", "name": "Golden Penny" },
+                "category": "Cooking Oil",
+                "description": "Vitamin A fortified refined cooking oil packaged for commercial kitchens, bakeries, and wholesale resellers."
+              },
+              {
+                "@type": "Product",
+                "name": "Golden Penny Spaghetti",
+                "brand": { "@type": "Brand", "name": "Golden Penny" },
+                "category": "Pasta",
+                "description": "Wholesale cartons of premium durum wheat semolina spaghetti. Non-sticky texture for commercial food service."
+              },
+              {
+                "@type": "Product",
+                "name": "Dangote Spaghetti",
+                "brand": { "@type": "Brand", "name": "Dangote" },
+                "category": "Pasta",
+                "description": "Fast-cooking quality pasta in bulk cartons. High demand staple for retail stores, supermarkets, and institutions."
+              },
+              {
+                "@type": "Product",
+                "name": "STK Royal Active Instant Dry Yeast",
+                "brand": { "@type": "Brand", "name": "STK Royal" },
+                "category": "Yeast & Baking",
+                "description": "High fermentation active dry yeast for rapid dough rising and reliable proofing in commercial bakeries."
+              }
+            ]
+          }
+        `}</script>
+
+        {/* ═══ JSON-LD: Breadcrumb ═══ */}
+        <script type="application/ld+json">{`
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://emmachiimperial.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Wholesale Catalog"
+              }
+            ]
+          }
+        `}</script>
       </Helmet>
       {/* ==================== HERO HEADER (Rectangular / Sharp Aesthetic) ==================== */}
       <section className="bg-gray-900 text-white py-14 md:py-20 relative overflow-hidden border-b-4 border-emerald-600">

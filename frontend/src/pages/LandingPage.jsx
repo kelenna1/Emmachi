@@ -110,6 +110,88 @@ const LandingPage = () => {
         <meta property="og:title" content="Emmachi Imperial — Premium Wholesale Food Ingredients in Lagos" />
         <meta property="og:description" content="Wholesale sugar, flour, rice, pasta, cooking oil & spices. Dangote, BUA, Golden Penny. Same-day Lagos delivery." />
         <meta property="og:url" content="https://emmachiimperial.com/" />
+
+        {/* ═══ JSON-LD: WholesaleStore (Business Identity) ═══ */}
+        <script type="application/ld+json">{`
+          {
+            "@context": "https://schema.org",
+            "@type": "WholesaleStore",
+            "@id": "https://emmachiimperial.com/#business",
+            "name": "Emmachi Imperial",
+            "alternateName": "Emmachi Imperial Nigeria",
+            "description": "Premium wholesale distributor of sugar, flour, rice, pasta, cooking oil, yeast, and spices across South-West Nigeria. Serving bakeries, restaurants, and food manufacturers since 1994.",
+            "url": "https://emmachiimperial.com",
+            "telephone": "+2348161220145",
+            "email": "emmachi2025@gmail.com",
+            "foundingDate": "1994",
+            "image": "https://emmachiimperial.com/emmachi.svg",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://emmachiimperial.com/emmachi.svg"
+            },
+            "address": [
+              {
+                "@type": "PostalAddress",
+                "name": "Emmachi Imperial — Iddo Outlet",
+                "streetAddress": "Heyden trailer park, Iddo underbridge",
+                "addressLocality": "Iddo, Lagos",
+                "addressRegion": "Lagos",
+                "addressCountry": "NG"
+              },
+              {
+                "@type": "PostalAddress",
+                "name": "Emmachi Imperial — Suru Outlet",
+                "streetAddress": "A40, Army Mammy Market",
+                "addressLocality": "Suru Alaba, Lagos",
+                "addressRegion": "Lagos",
+                "addressCountry": "NG"
+              }
+            ],
+            "areaServed": {
+              "@type": "GeoCircle",
+              "geoMidpoint": {
+                "@type": "GeoCoordinates",
+                "latitude": 6.5244,
+                "longitude": 3.3792
+              },
+              "geoRadius": "200000"
+            },
+            "priceRange": "$$",
+            "currenciesAccepted": "NGN",
+            "paymentAccepted": "Cash, Bank Transfer",
+            "knowsAbout": [
+              "Wholesale sugar distribution",
+              "Wholesale flour distribution",
+              "Wholesale rice distribution",
+              "Wholesale cooking oil",
+              "Wholesale spaghetti and pasta",
+              "Wholesale yeast and baking supplies",
+              "Food commodity trading in Nigeria"
+            ],
+            "brand": [
+              { "@type": "Brand", "name": "Dangote" },
+              { "@type": "Brand", "name": "BUA" },
+              { "@type": "Brand", "name": "Golden Penny" },
+              { "@type": "Brand", "name": "Honeywell" },
+              { "@type": "Brand", "name": "Mama Africa" },
+              { "@type": "Brand", "name": "STK Royal" }
+            ],
+            "sameAs": []
+          }
+        `}</script>
+
+        {/* ═══ JSON-LD: WebSite (Sitelinks Search) ═══ */}
+        <script type="application/ld+json">{`
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Emmachi Imperial",
+            "url": "https://emmachiimperial.com",
+            "publisher": {
+              "@id": "https://emmachiimperial.com/#business"
+            }
+          }
+        `}</script>
       </Helmet>
 
       {/* ==================== HERO SECTION - Split cinematic style ==================== */}
