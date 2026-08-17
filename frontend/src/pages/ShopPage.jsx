@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import { Search, MessageCircle, ArrowRight, Package, Filter, Check, Phone } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 
 // Asset Imports
@@ -176,6 +177,16 @@ export default function ShopPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900 font-sans pb-20">
+
+      {/* ═══ SEO Meta Tags ═══ */}
+      <Helmet>
+        <title>Shop Wholesale — Sugar, Flour, Rice, Pasta & More | Emmachi Imperial</title>
+        <meta name="description" content="Browse Emmachi Imperial's wholesale product catalog. Dangote Sugar, Golden Penny Flour, Mama Gold Rice, spaghetti, cooking oil & spices. Order via WhatsApp for same-day Lagos delivery." />
+        <link rel="canonical" href="https://emmachiimperial.com/shop" />
+        <meta property="og:title" content="Wholesale Product Catalog | Emmachi Imperial" />
+        <meta property="og:description" content="Dangote Sugar, Golden Penny Flour, Mama Gold Rice & more. Browse our full wholesale catalog and order via WhatsApp." />
+        <meta property="og:url" content="https://emmachiimperial.com/shop" />
+      </Helmet>
       {/* ==================== HERO HEADER (Rectangular / Sharp Aesthetic) ==================== */}
       <section className="bg-gray-900 text-white py-14 md:py-20 relative overflow-hidden border-b-4 border-emerald-600">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(16,185,129,0.15),transparent_50%)]" />

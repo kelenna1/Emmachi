@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { ArrowRight, Users, Award, Truck, Shield, CheckCircle, Banknote, Package, MessageCircle, MapPin, Phone, Clock, Mail } from 'lucide-react';
 import ShinyText from '../components/ShinyText';
 import ThreeDCarousel from '../components/ThreeDCarousel';
@@ -100,6 +101,16 @@ const LandingPage = () => {
 
   return (
     <div className="overflow-hidden">
+
+      {/* ═══ SEO Meta Tags ═══ */}
+      <Helmet>
+        <title>Emmachi Imperial — Premium Wholesale Food Ingredients in Lagos, Nigeria</title>
+        <meta name="description" content="Emmachi Imperial distributes premium wholesale sugar, flour, rice, pasta, cooking oil and spices across South-West Nigeria. Trusted partners: Dangote, BUA, Golden Penny. Same-day delivery from Lagos." />
+        <link rel="canonical" href="https://emmachiimperial.com/" />
+        <meta property="og:title" content="Emmachi Imperial — Premium Wholesale Food Ingredients in Lagos" />
+        <meta property="og:description" content="Wholesale sugar, flour, rice, pasta, cooking oil & spices. Dangote, BUA, Golden Penny. Same-day Lagos delivery." />
+        <meta property="og:url" content="https://emmachiimperial.com/" />
+      </Helmet>
 
       {/* ==================== HERO SECTION - Split cinematic style ==================== */}
       <section className="hero-cinematic min-h-screen flex items-center relative">

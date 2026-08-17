@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { ChevronRight, ArrowRight, CheckCircle2 } from 'lucide-react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -68,6 +69,16 @@ const AboutPage = () => {
 
   return (
     <div className="overflow-hidden">
+
+      {/* ═══ SEO Meta Tags ═══ */}
+      <Helmet>
+        <title>About Emmachi Imperial — Our Story & Wholesale Network | Lagos, Nigeria</title>
+        <meta name="description" content="Learn about Emmachi Imperial's mission to be Lagos's most trusted wholesale food distributor. 30+ years of experience, trusted partners including Dangote, BUA, and Golden Penny. Outlets in Iddo & Suru Alaba." />
+        <link rel="canonical" href="https://emmachiimperial.com/about" />
+        <meta property="og:title" content="About Emmachi Imperial — Our Story & Wholesale Network" />
+        <meta property="og:description" content="30+ years distributing premium wholesale food ingredients across South-West Nigeria. Meet Emmachi Imperial." />
+        <meta property="og:url" content="https://emmachiimperial.com/about" />
+      </Helmet>
 
       {/* ==================== SECTION 1: IMMERSIVE HERO ==================== */}
       <section className="relative min-h-[85vh] md:min-h-[90vh] flex items-center overflow-hidden">
