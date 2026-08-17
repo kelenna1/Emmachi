@@ -1,0 +1,12 @@
+# Emmachi Imperial — robots.txt
+# Allow all bots to crawl the site, point them to the sitemap
+
+User-agent: *
+Allow: /
+
+# Block private/admin pages from indexing
+Disallow: /admin
+Disallow: /login
+
+# Sitemap location
+Sitemap: https://emmachiimperial.com/sitemap.xml
