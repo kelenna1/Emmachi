@@ -18,6 +18,10 @@ import fflour from '../assets/fflour.png';
 import frice from '../assets/frice.png';
 import foil from '../assets/foil.png';
 import fspag from '../assets/fspag.png';
+import honeywellBakersDelight from '../assets/honeywell-bakers-delight.jpg';
+import goldenPennyFlour from '../assets/golden-penny-flour.jpeg';
+import stkRoyalYeast from '../assets/stk-royal-yeast.jpg';
+import goldenPennySugar from '../assets/golden-penny-sugar.jpg';
 import yeastt from '../assets/yeast.avif';
 import yeast from '../assets/yeast.jpg';
 import nono from '../assets/nono.jpg';
@@ -58,14 +62,14 @@ const LandingPage = () => {
       name: 'Refined Sugar',
       badge: 'SUGAR',
       description: 'Premium refined sugar from BUA, Dangote, and Golden Penny. Ideal for bakeries, beverage production, and confectionery.',
-      image: Sugar,
+      image: goldenPennySugar,
       whatsappText: "I'd like to place a wholesale order for Refined Sugar."
     },
     {
       name: 'Baking Flour',
       badge: 'FLOUR',
       description: 'High-quality wheat flour from Golden Penny, Honeywell, and Prima. Perfect for commercial baking and food production.',
-      image: fflour,
+      image: goldenPennyFlour,
       whatsappText: "I'd like to order Baking Flour in bulk. Please send available brands and prices."
     },
     {

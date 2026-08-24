@@ -12,6 +12,13 @@ import fspag from '../assets/fspag.png';
 import yeastImg from '../assets/yeast.jpg';
 import spicesImg from '../assets/spices.png';
 
+// Real product images
+import honeywellBakersDelight from '../assets/honeywell-bakers-delight.jpg';
+import goldenPennyFlour from '../assets/golden-penny-flour.jpeg';
+import honeywellSuperfine from '../assets/honeywell-superfine-flour.jpg';
+import stkRoyalYeast from '../assets/stk-royal-yeast.jpg';
+import goldenPennySugar from '../assets/golden-penny-sugar.jpg';
+
 const WHATSAPP_NUMBER = '2348161220145';
 
 const PRODUCTS = [
@@ -39,7 +46,7 @@ const PRODUCTS = [
     category: 'Sugar',
     badge: 'SUGAR',
     brand: 'Golden Penny',
-    image: fsugar,
+    image: goldenPennySugar,
     description: 'Fortified white refined sugar from Flour Mills of Nigeria. Trusted for commercial baking and confectionery.',
   },
   {
@@ -48,7 +55,7 @@ const PRODUCTS = [
     category: 'Flour',
     badge: 'FLOUR',
     brand: 'Golden Penny',
-    image: fflour,
+    image: goldenPennyFlour,
     description: 'Versatile premium wheat flour in 50kg bags. Superior gluten content for bread, pastries, and general baking.',
   },
   {
@@ -57,7 +64,7 @@ const PRODUCTS = [
     category: 'Flour',
     badge: 'FLOUR',
     brand: 'Honeywell',
-    image: fflour,
+    image: honeywellBakersDelight,
     description: 'Specially formulated bread flour for high volume yield, excellent oven spring, and soft crumb structure.',
   },
   {
@@ -75,7 +82,7 @@ const PRODUCTS = [
     category: 'Flour',
     badge: 'FLOUR',
     brand: 'Honeywell',
-    image: fflour,
+    image: honeywellSuperfine,
     description: 'Extra fine white flour ideal for delicate cakes, puff pastries, chin-chin, and confectionery recipes.',
   },
   {
@@ -138,7 +145,7 @@ const PRODUCTS = [
     category: 'Yeast & Baking',
     badge: 'BAKING',
     brand: 'STK Royal',
-    image: yeastImg,
+    image: stkRoyalYeast,
     description: 'High fermentation active dry yeast for rapid dough rising and reliable proofing in commercial bakeries.',
   },
   {
