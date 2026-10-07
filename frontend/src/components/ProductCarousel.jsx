@@ -1,58 +1,11 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
 
 const WHATSAPP_NUMBER = '2348161220145';
 
-const ProductCarousel = ({ products = [], speed = 1.0 }) => {
+const ProductCarousel = ({ products = [] }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const containerRef = useRef(null);
-  const animationRef = useRef(null);
-  const isUserInteracting = useRef(false);
-  const interactionTimeout = useRef(null);
-
-  // Duplicate items for seamless infinite scroll (original + one clone set)
-  const displayItems = [...products, ...products];
-
-  // Pause auto-scroll during any user interaction, resume after a delay
-  const pauseAutoScroll = useCallback(() => {
-    isUserInteracting.current = true;
-    clearTimeout(interactionTimeout.current);
-    interactionTimeout.current = setTimeout(() => {
-      isUserInteracting.current = false;
-    }, 2500); // resume 2.5s after user stops touching/hovering
-  }, []);
-
-  // CSS-driven infinite scroll using translateX on a wrapper
-  // This avoids fighting with native scroll and snap
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container || products.length === 0) return;
-
-    let position = 0;
-
-    const animate = () => {
-      if (!isUserInteracting.current) {
-        position += speed * 0.6;
-
-        // When we've scrolled past the first set of cards, seamlessly reset
-        const singleSetWidth = container.scrollWidth / 2;
-        if (position >= singleSetWidth) {
-          position = 0;
-        }
-
-        container.scrollLeft = position;
-      } else {
-        // Track where user scrolled to so we resume from there
-        position = container.scrollLeft;
-      }
-
-      animationRef.current = requestAnimationFrame(animate);
-    };
-
-    animationRef.current = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(animationRef.current);
-  }, [speed, products.length]);
-
   // Track active card based on scroll position
   useEffect(() => {
     const container = containerRef.current;
@@ -62,7 +15,7 @@ const ProductCarousel = ({ products = [], speed = 1.0 }) => {
       const cardWidth = container.firstElementChild?.offsetWidth || 280;
       const gap = 20; // gap-5 = 1.25rem = 20px
       const index = Math.round(container.scrollLeft / (cardWidth + gap));
-      setActiveIndex(index % products.length);
+      setActiveIndex(products.length ? Math.min(index, products.length - 1) : 0);
     };
 
     container.addEventListener('scroll', handleScroll, { passive: true });
@@ -77,7 +30,6 @@ const ProductCarousel = ({ products = [], speed = 1.0 }) => {
   };
 
   const scrollTo = (direction) => {
-    pauseAutoScroll();
     const amount = getCardScrollAmount();
     containerRef.current?.scrollBy({
       left: direction === 'left' ? -amount : amount,
@@ -86,7 +38,6 @@ const ProductCarousel = ({ products = [], speed = 1.0 }) => {
   };
 
   const scrollToCard = (index) => {
-    pauseAutoScroll();
     const amount = getCardScrollAmount();
     containerRef.current?.scrollTo({
       left: index * amount,
@@ -108,7 +59,7 @@ const ProductCarousel = ({ products = [], speed = 1.0 }) => {
 
       {/* Section Header */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-10 md:mb-12">
-        <div className="text-center" data-aos="fade-up">
+        <div className="text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200/60 text-emerald-800 text-[11px] font-bold uppercase tracking-wider mb-2.5">
             <span>Comprehensive Supply Network</span>
           </div>
@@ -130,25 +81,10 @@ const ProductCarousel = ({ products = [], speed = 1.0 }) => {
             scrollBehavior: 'auto',
             WebkitOverflowScrolling: 'touch',
           }}
-          onMouseEnter={pauseAutoScroll}
-          onMouseLeave={() => {
-            clearTimeout(interactionTimeout.current);
-            interactionTimeout.current = setTimeout(() => {
-              isUserInteracting.current = false;
-            }, 800);
-          }}
-          onTouchStart={pauseAutoScroll}
-          onTouchEnd={() => {
-            clearTimeout(interactionTimeout.current);
-            interactionTimeout.current = setTimeout(() => {
-              isUserInteracting.current = false;
-            }, 2500);
-          }}
         >
-          {displayItems.map((product, index) => {
+          {products.map((product, index) => {
             const waOrderUrl = getWhatsAppUrl(product.whatsappText);
-            const isOriginal = index < products.length;
-            const itemKey = isOriginal ? `original-${index}` : `clone-${index}`;
+            const itemKey = `product-${index}`;
 
             return (
               <div
@@ -253,7 +189,7 @@ const ProductCarousel = ({ products = [], speed = 1.0 }) => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-10 md:mt-12" data-aos="fade-up">
+        <div className="text-center mt-10 md:mt-12">
           <a
             href="/shop"
             className="inline-flex items-center gap-2 px-6 py-3 md:px-7 md:py-3.5 bg-gray-900 text-white font-bold text-xs md:text-sm rounded-xl shadow-lg hover:bg-emerald-700 transition-colors duration-200"

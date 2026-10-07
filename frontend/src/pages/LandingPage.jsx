@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { ArrowRight, Users, Award, Truck, Shield, CheckCircle, Banknote, Package, MessageCircle, MapPin, Phone, Clock, Mail } from 'lucide-react';
-import ShinyText from '../components/ShinyText';
 import ThreeDCarousel from '../components/ThreeDCarousel';
 import ProductCarousel from '../components/ProductCarousel';
 import BentoGrid from '../components/BentoGrid';
@@ -27,21 +26,10 @@ import yeast from '../assets/yeast.jpg';
 import nono from '../assets/nono.jpg';
 import oil from '../assets/oil.png';
 import spices from '../assets/spices.png';
-import { useEffect } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 
 const WHATSAPP_LINK = "https://wa.me/2348161220145?text=Hi%20Emmachi%20Imperial%2C%20I%27d%20like%20to%20place%20an%20order.";
 
 const LandingPage = () => {
-  useEffect(() => {
-    AOS.init({
-      duration: 800,
-      easing: 'ease-out',
-      once: true,
-    });
-  }, []);
-
   const partners = [
     { name: 'Dangote', logo: dangote },
     { name: 'BUA', logo: bua },
@@ -213,7 +201,7 @@ const LandingPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             {/* Left Column: Big Bold Headline & Categories Subheading */}
-            <div className="lg:col-span-7 space-y-6" data-aos="fade-right">
+            <div className="lg:col-span-7 space-y-6">
               <h1 className="text-5xl md:text-7xl font-extrabold text-white tracking-tight leading-[1.05]">
                 Reliable<br/>
                 Distribution<br/>
@@ -225,7 +213,7 @@ const LandingPage = () => {
             </div>
 
             {/* Right Column: Description & Horizontal Buttons */}
-            <div className="lg:col-span-5 space-y-8 lg:pl-6" data-aos="fade-left" data-aos-delay="200">
+            <div className="lg:col-span-5 space-y-8 lg:pl-6">
               <p className="text-lg md:text-xl text-white/80 leading-relaxed font-medium">
                 For over three decades, we have proudly supplied high-quality food ingredients and industrial raw materials to bakeries, manufacturers, and businesses across Nigeria.
               </p>
@@ -257,7 +245,7 @@ const LandingPage = () => {
           </div>
 
           {/* Stats Bar at the bottom of the Hero Section */}
-          <div className="grid grid-cols-3 gap-6 max-w-lg mt-16 pt-8 border-t border-white/15" data-aos="fade-up" data-aos-delay="400">
+          <div className="grid grid-cols-3 gap-6 max-w-lg mt-16 pt-8 border-t border-white/15">
             {stats.map((stat, index) => (
               <div key={index} className="text-left">
                 <div className="text-2xl md:text-3xl font-extrabold text-yellow-300">{stat.number}</div>
@@ -275,7 +263,7 @@ const LandingPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             {/* Left Column: Image with Award Badge Overlay */}
-            <div className="lg:col-span-5" data-aos="fade-right">
+            <div className="lg:col-span-5">
               <div className="relative">
                 <div className="rounded-3xl shadow-xl overflow-hidden bg-gray-50 border border-gray-100 p-2">
                   <img
@@ -288,8 +276,6 @@ const LandingPage = () => {
                 {/* Floating Award Badge */}
                 <div 
                   className="absolute -bottom-6 -right-2 md:-right-6 bg-amber-500 text-white p-4 md:p-5 rounded-2xl shadow-2xl max-w-[240px] border-2 border-white"
-                  data-aos="zoom-in" 
-                  data-aos-delay="300"
                 >
                   <div className="flex items-center gap-2 mb-1">
                     <Award className="w-5 h-5 text-yellow-100" />
@@ -302,7 +288,7 @@ const LandingPage = () => {
             </div>
 
             {/* Right Column: Text & Milestones */}
-            <div className="lg:col-span-7 space-y-6 lg:pl-6" data-aos="fade-left">
+            <div className="lg:col-span-7 space-y-6 lg:pl-6">
               <div>
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200/60 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-4">
                   <Award className="w-3.5 h-3.5 text-emerald-600" />
@@ -310,13 +296,7 @@ const LandingPage = () => {
                 </div>
                 <div className="relative inline-block pb-2">
                   <h2 className="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight">
-                    <ShinyText 
-                      text="Award-Winning Excellence in FMCG Distribution"
-                      color="#0f172a"
-                      shineColor="#10b981"
-                      speed={2.5}
-                      spread={140}
-                    />
+                    <span className="text-slate-900">Award-Winning Excellence in FMCG Distribution</span>
                   </h2>
                   {/* Subtle Arc Stroke Accent */}
                   <svg className="absolute -bottom-1 left-0 w-full h-4 text-emerald-500/50" viewBox="0 0 200 20" fill="none" preserveAspectRatio="none">
@@ -360,7 +340,7 @@ const LandingPage = () => {
       {/* ==================== BRANDS WE DISTRIBUTE SECTION (Marquee Carousel) ==================== */}
       <section id="partners" className="py-20 bg-gray-50/70 border-y border-gray-100 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-          <div className="text-center" data-aos="fade-up">
+          <div className="text-center">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200/60 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-3">
               <span>Direct Manufacturer Partnerships</span>
             </div>
@@ -380,7 +360,7 @@ const LandingPage = () => {
       </section>
 
       {/* ==================== FEATURED PRODUCTS SECTION - Creative Carousel ==================== */}
-      <ProductCarousel products={products} speed={1.2} />
+      <ProductCarousel products={products} />
 
       {/* ==================== HIGHLIGHTS / WHY CHOOSE US ==================== */}
       <BentoGrid />
@@ -390,7 +370,7 @@ const LandingPage = () => {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Section Header */}
-          <div className="text-center mb-10 md:mb-14" data-aos="fade-up">
+          <div className="text-center mb-10 md:mb-14">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200/60 text-emerald-800 text-[11px] font-bold uppercase tracking-wider mb-3">
               <span>Get in Touch</span>
             </div>
@@ -405,7 +385,7 @@ const LandingPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
 
             {/* Left - Contact Info */}
-            <div className="bg-white rounded-2xl border border-gray-200/70 p-6 md:p-8 space-y-6" data-aos="fade-up">
+            <div className="bg-white rounded-2xl border border-gray-200/70 p-6 md:p-8 space-y-6">
               <h3 className="text-lg font-bold text-gray-900">Contact Us</h3>
 
               <div className="space-y-5">
@@ -469,7 +449,7 @@ const LandingPage = () => {
             </div>
 
             {/* Right - Locations */}
-            <div className="space-y-5" data-aos="fade-up" data-aos-delay="100">
+            <div className="space-y-5">
 
               {/* Location 1: Iddo */}
               <div className="bg-white rounded-2xl border border-gray-200/70 p-6 md:p-8">
@@ -539,14 +519,14 @@ const LandingPage = () => {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(245,158,11,0.08),transparent_50%)]" />
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-4 tracking-tight" data-aos="fade-up">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">
             Ready to Place Your Order?
           </h2>
-          <p className="text-base md:text-lg text-gray-300 mb-10 max-w-xl mx-auto" data-aos="fade-up" data-aos-delay="80">
+          <p className="text-base md:text-lg text-gray-300 mb-10 max-w-xl mx-auto">
             Whether you need 50 bags or 500, we've got you covered. Reach out however works best for you.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center" data-aos="fade-up" data-aos-delay="150">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             {/* Primary: WhatsApp */}
             <a
               href="https://wa.me/2348161220145"

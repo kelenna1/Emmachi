@@ -1,9 +1,7 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { ChevronRight, ArrowRight, CheckCircle2 } from 'lucide-react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 import heroImg from '../assets/flour.jpeg';
 import dangote from '../assets/dangote.png';
 import bua from '../assets/bua.png';
@@ -12,46 +10,12 @@ import yeastt from '../assets/yeast.avif';
 
 const WHATSAPP_LINK = "https://wa.me/2348161220145?text=Hi%20Emmachi%20Imperial%2C%20I%27d%20like%20to%20learn%20more%20about%20a%20wholesale%20partnership.";
 
-/* ─── Animated Counter Hook ─── */
-function useCountUp(target, duration = 2000, startOnView = true) {
-  const [count, setCount] = useState(0);
-  const ref = useRef(null);
-  const hasRun = useRef(false);
-
-  useEffect(() => {
-    if (!startOnView) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasRun.current) {
-          hasRun.current = true;
-          const start = performance.now();
-          const step = (now) => {
-            const elapsed = now - start;
-            const progress = Math.min(elapsed / duration, 1);
-            // Ease-out cubic
-            const eased = 1 - Math.pow(1 - progress, 3);
-            setCount(Math.floor(eased * target));
-            if (progress < 1) requestAnimationFrame(step);
-          };
-          requestAnimationFrame(step);
-        }
-      },
-      { threshold: 0.3 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [target, duration, startOnView]);
-
-  return { count, ref };
-}
-
 /* ─── Stat Card ─── */
 function StatCard({ value, suffix = '', label }) {
-  const { count, ref } = useCountUp(value, 2200);
   return (
-    <div ref={ref} className="text-center px-6 py-4 md:py-0">
+    <div className="text-center px-6 py-4 md:py-0">
       <div className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 tracking-tight">
-        {count.toLocaleString()}{suffix}
+        {value.toLocaleString()}{suffix}
       </div>
       <div className="text-xs md:text-sm text-gray-500 mt-1 font-medium uppercase tracking-wider">
         {label}
@@ -63,7 +27,6 @@ function StatCard({ value, suffix = '', label }) {
 /* ─── About Page ─── */
 const AboutPage = () => {
   useEffect(() => {
-    AOS.init({ duration: 800, easing: 'ease-out', once: true });
     window.scrollTo(0, 0);
   }, []);
 
@@ -148,7 +111,7 @@ const AboutPage = () => {
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 md:py-40">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-1.5 text-xs text-gray-400 mb-8" data-aos="fade-down">
+          <nav className="flex items-center gap-1.5 text-xs text-gray-400 mb-8">
             <Link to="/" className="hover:text-white transition-colors">Home</Link>
             <ChevronRight className="w-3 h-3" />
             <span className="text-emerald-400 font-semibold">About Us</span>
@@ -158,15 +121,12 @@ const AboutPage = () => {
           <div className="max-w-3xl">
             <div
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[11px] font-bold uppercase tracking-wider mb-6"
-              data-aos="fade-up"
             >
               <span>Since 1994</span>
             </div>
 
             <h1
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.05] tracking-tight mb-6"
-              data-aos="fade-up"
-              data-aos-delay="80"
             >
               Driving Excellence in{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-emerald-300">
@@ -177,8 +137,6 @@ const AboutPage = () => {
 
             <p
               className="text-base md:text-lg text-gray-300 leading-relaxed max-w-xl mb-10"
-              data-aos="fade-up"
-              data-aos-delay="160"
             >
               For over three decades, Emmachi Imperial has been the backbone of supply for
               bakeries, food manufacturers, and retailers across Lagos and the South-West.
@@ -187,8 +145,6 @@ const AboutPage = () => {
 
             <div
               className="flex flex-col sm:flex-row gap-3"
-              data-aos="fade-up"
-              data-aos-delay="240"
             >
               <a
                 href={WHATSAPP_LINK}
@@ -218,8 +174,6 @@ const AboutPage = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <div
             className="bg-white rounded-2xl shadow-xl shadow-gray-200/60 border border-gray-100 px-6 py-8 md:py-10"
-            data-aos="fade-up"
-            data-aos-delay="100"
           >
             <div className="grid grid-cols-3 divide-x divide-gray-200">
               <StatCard value={30} suffix="+" label="Years of Legacy" />
@@ -235,7 +189,7 @@ const AboutPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Large Typography Header */}
-          <div className="mb-14 md:mb-20" data-aos="fade-up">
+          <div className="mb-14 md:mb-20">
             <h2 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-gray-900 tracking-tighter leading-[0.85]">
               OUR
               <br />
@@ -249,7 +203,7 @@ const AboutPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
 
             {/* Left: Image */}
-            <div className="relative" data-aos="fade-right">
+            <div className="relative">
               <div className="rounded-3xl overflow-hidden shadow-2xl shadow-gray-200/50 border border-gray-100">
                 <img
                   src={heroImg}
@@ -260,8 +214,6 @@ const AboutPage = () => {
               {/* Floating accent card */}
               <div
                 className="absolute -bottom-6 -right-4 md:-right-8 bg-gray-900 text-white px-5 py-4 rounded-2xl shadow-xl max-w-[200px] border border-gray-800"
-                data-aos="zoom-in"
-                data-aos-delay="200"
               >
                 <div className="text-2xl md:text-3xl font-black">1994</div>
                 <div className="text-[11px] text-gray-400 font-medium mt-0.5">Year Founded</div>
@@ -269,7 +221,7 @@ const AboutPage = () => {
             </div>
 
             {/* Right: Narrative */}
-            <div className="space-y-6 lg:pt-4" data-aos="fade-left">
+            <div className="space-y-6 lg:pt-4">
               <div>
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200/60 text-emerald-800 text-[11px] font-bold uppercase tracking-wider mb-4">
                   <span>Our Philosophy</span>
@@ -335,7 +287,7 @@ const AboutPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Section Header */}
-          <div className="text-center mb-14 md:mb-20" data-aos="fade-up">
+          <div className="text-center mb-14 md:mb-20">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200/60 text-emerald-800 text-[11px] font-bold uppercase tracking-wider mb-3">
               <span>What We Stand For</span>
             </div>
@@ -346,7 +298,7 @@ const AboutPage = () => {
           </div>
 
           {/* Mission & Vision Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12" data-aos="fade-up" data-aos-delay="80">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
 
             {/* Mission */}
             <div className="bg-white rounded-2xl border border-gray-200/70 p-8 md:p-10 relative overflow-hidden group hover:border-emerald-200 transition-colors">
@@ -376,7 +328,7 @@ const AboutPage = () => {
           </div>
 
           {/* Core Values Grid */}
-          <div data-aos="fade-up" data-aos-delay="150">
+          <div>
             <h3 className="text-lg md:text-xl font-extrabold text-gray-900 mb-6 text-center">
               Core Values
             </h3>
@@ -411,7 +363,7 @@ const AboutPage = () => {
       <section className="py-20 md:py-28 bg-emerald-700 text-center px-4 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.1),transparent_50%)]" />
         
-        <div className="relative z-10 max-w-3xl mx-auto" data-aos="zoom-in">
+        <div className="relative z-10 max-w-3xl mx-auto">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight mb-6 leading-tight">
             Ready to scale your supply?
           </h2>

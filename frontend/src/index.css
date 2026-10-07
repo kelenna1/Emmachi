@@ -1,7 +1,6 @@
 @import "tailwindcss";
-@import 'aos/dist/aos.css';
 
-/* ===== HERO IMAGE BLEND + ZOOM ===== */
+/* ===== HERO IMAGE BLEND ===== */
 .hero-cinematic {
   position: relative;
   min-height: 90vh;
@@ -21,12 +20,6 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
-  animation: heroZoom 20s ease-out forwards;
-}
-
-@keyframes heroZoom {
-  0% { transform: scale(1.1); }
-  100% { transform: scale(1); }
 }
 
 /* Green gradient overlay that blends the image */
@@ -76,7 +69,6 @@
   transition: all 0.3s ease;
   cursor: pointer;
   text-decoration: none;
-  animation: waPulse 2s infinite;
 }
 
 .whatsapp-float:hover {
@@ -88,11 +80,6 @@
   width: 28px;
   height: 28px;
   fill: white;
-}
-
-@keyframes waPulse {
-  0%, 100% { box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4); }
-  50% { box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6), 0 0 0 10px rgba(37, 211, 102, 0.08); }
 }
 
 /* ===== INFINITE MARQUEE CAROUSEL ===== */

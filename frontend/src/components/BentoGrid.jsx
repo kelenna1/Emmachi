@@ -1,5 +1,4 @@
-import { useState, useEffect, useRef } from "react";
-import { motion, useMotionValue, useTransform } from "framer-motion";
+import { motion as Motion, useMotionValue, useTransform } from "framer-motion";
 
 const cn = (...classes) => classes.filter(Boolean).join(" ");
 
@@ -56,58 +55,11 @@ const bentoItems = [
   },
 ];
 
-const fadeInUp = {
-  hidden: { opacity: 0, y: 16 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.45,
-      ease: "easeOut",
-    },
-  },
-};
-
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.15,
-    },
-  },
-};
-
-const CounterAnimation = ({ start, end, suffix = "" }) => {
-  const [count, setCount] = useState(start);
-
-  useEffect(() => {
-    const duration = 2000;
-    const frameRate = 1000 / 60;
-    const totalFrames = Math.round(duration / frameRate);
-
-    let currentFrame = 0;
-    const counter = setInterval(() => {
-      currentFrame++;
-      const progress = currentFrame / totalFrames;
-      const easedProgress = 1 - (1 - progress) ** 3;
-      const current = start + (end - start) * easedProgress;
-
-      setCount(Math.min(current, end));
-
-      if (currentFrame === totalFrames) {
-        clearInterval(counter);
-      }
-    }, frameRate);
-
-    return () => clearInterval(counter);
-  }, [start, end]);
-
+const CounterAnimation = ({ end, suffix = "" }) => {
   return (
     <div className="flex items-baseline gap-1">
       <span className="font-bold text-3xl text-gray-900">
-        {count.toFixed(0)}
+        {end.toFixed(0)}
       </span>
       <span className="font-semibold text-emerald-600 text-xl">
         {suffix}
@@ -118,11 +70,9 @@ const CounterAnimation = ({ start, end, suffix = "" }) => {
 
 const ChartAnimation = ({ value }) => (
   <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-gray-100">
-    <motion.div
-      animate={{ width: `${value}%` }}
+    <div
       className="h-full rounded-full bg-emerald-500"
-      initial={{ width: 0 }}
-      transition={{ duration: 1.5, ease: "easeOut" }}
+      style={{ width: `${value}%` }}
     />
   </div>
 );
@@ -131,12 +81,9 @@ const TimelineFeature = ({ timeline }) => (
   <div className="relative mt-4">
     <div className="absolute top-0 bottom-0 left-[9px] w-[2px] bg-gray-100" />
     {timeline.map((item, index) => (
-      <motion.div
-        animate={{ opacity: 1, x: 0 }}
+      <div
         className="relative mb-4 last:mb-0 flex gap-4"
-        initial={{ opacity: 0, x: -8 }}
         key={index}
-        transition={{ delay: 0.15 * index }}
       >
         <div className="z-10 mt-1 h-5 w-5 flex-shrink-0 rounded-full border-[3px] border-white bg-emerald-500 shadow-sm" />
         <div>
@@ -147,34 +94,12 @@ const TimelineFeature = ({ timeline }) => (
             {item.event}
           </div>
         </div>
-      </motion.div>
+      </div>
     ))}
   </div>
 );
 
 const TypingCodeFeature = ({ text }) => {
-  const [displayedText, setDisplayedText] = useState("");
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const terminalRef = useRef(null);
-
-  useEffect(() => {
-    if (currentIndex < text.length) {
-      const timeout = setTimeout(
-        () => {
-          setDisplayedText((prev) => prev + text[currentIndex]);
-          setCurrentIndex((prev) => prev + 1);
-
-          if (terminalRef.current) {
-            terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
-          }
-        },
-        Math.random() * 35 + 15
-      );
-
-      return () => clearTimeout(timeout);
-    }
-  }, [currentIndex, text]);
-
   return (
     <div className="relative mt-3">
       <div className="mb-2 flex items-center gap-2">
@@ -189,11 +114,9 @@ const TypingCodeFeature = ({ text }) => {
       </div>
       <div
         className="h-[110px] overflow-y-auto rounded-lg bg-gray-50 p-4 font-sans text-gray-700 text-sm border border-gray-100"
-        ref={terminalRef}
       >
         <pre className="whitespace-pre-wrap leading-relaxed font-sans text-sm">
-          {displayedText}
-          <span className="animate-pulse text-emerald-500">|</span>
+          {text}
         </pre>
       </div>
     </div>
@@ -222,7 +145,7 @@ const BentoCard = ({ item }) => {
   }
 
   return (
-    <motion.div
+    <Motion.div
       className={cn("h-full", item.className)}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
@@ -232,7 +155,6 @@ const BentoCard = ({ item }) => {
         transformStyle: "preserve-3d",
       }}
       transition={{ type: "spring", stiffness: 400, damping: 30 }}
-      variants={fadeInUp}
     >
       <div
         className="group relative flex h-full flex-col rounded-2xl border border-gray-200/70 bg-white p-6 md:p-7 transition-all duration-300 hover:border-gray-300/80 hover:shadow-lg overflow-hidden"
@@ -256,7 +178,6 @@ const BentoCard = ({ item }) => {
             <div className="mt-auto pt-4">
               <CounterAnimation
                 end={item.statistic.end || 100}
-                start={item.statistic.start || 0}
                 suffix={item.statistic.suffix}
               />
               <div className="text-xs font-medium text-gray-400 mt-1">
@@ -291,7 +212,7 @@ const BentoCard = ({ item }) => {
 
         </div>
       </div>
-    </motion.div>
+    </Motion.div>
   );
 };
 
@@ -301,7 +222,7 @@ export default function BentoGrid() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center mb-10 md:mb-14" data-aos="fade-up">
+        <div className="text-center mb-10 md:mb-14">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200/60 text-emerald-800 text-[11px] font-bold uppercase tracking-wider mb-3">
             <span>Why Emmachi</span>
           </div>
@@ -314,17 +235,13 @@ export default function BentoGrid() {
         </div>
 
         {/* Bento Grid - 2x2 on both mobile and desktop */}
-        <motion.div
+        <div
           className="grid gap-4 md:gap-5 grid-cols-2 auto-rows-[minmax(180px,auto)]"
-          initial="hidden"
-          variants={staggerContainer}
-          viewport={{ once: true, margin: "-60px" }}
-          whileInView="visible"
         >
           {bentoItems.map((item) => (
             <BentoCard key={item.id} item={item} />
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
