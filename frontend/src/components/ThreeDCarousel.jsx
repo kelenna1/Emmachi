@@ -93,8 +93,8 @@ const ThreeDCarousel = ({ items = [] }) => {
                       <h3 className="text-sm font-bold text-gray-900 group-hover:text-emerald-700 transition-colors">
                         {item.name}
                       </h3>
-                      <span className="text-[11px] font-bold text-emerald-800 bg-emerald-50 border border-emerald-200/50 px-2.5 py-0.5 rounded-full inline-block mt-1">
-                        Authorized Supply
+                      <span className="text-sm text-gray-600 inline-block mt-1">
+                        Wholesale enquiries
                       </span>
                     </div>
                   </div>

@@ -12,9 +12,9 @@ const Footer = () => {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
               <Link to="/" className="flex items-center space-x-2">
-                <img src={logo} alt="Emmachi Imperial" className="w-10 h-10 object-contain" />
+                <img src={logo} alt="Emmachi Imperial Enterprises" className="w-10 h-10 object-contain" />
                 <div className="flex flex-col">
-                  <span className="text-xl font-bold text-white">Emmachi Imperial</span>
+                  <span className="text-xl font-bold text-white">Emmachi Imperial Enterprises</span>
                   <span className="text-xs text-gray-400">Reliable Distribution</span>
                 </div>
               </Link>
@@ -44,7 +44,7 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <Phone className="w-4 h-4 text-emerald-500 mt-1 shrink-0" />
                 <span className="text-sm text-gray-300">
-                  +234 816 122 0145
+                  08028851717
                 </span>
               </div>
               <div className="flex items-start space-x-3">
@@ -75,17 +75,17 @@ const Footer = () => {
               <li><Link to="/about" className="text-sm text-gray-300 hover:text-emerald-400 transition-colors">About Us</Link></li>
               <li><Link to="/shop" className="text-sm text-gray-300 hover:text-emerald-400 transition-colors">Our Products</Link></li>
               <li><Link to="/contact" className="text-sm text-gray-300 hover:text-emerald-400 transition-colors">Contact Us</Link></li>
-              <li><a href="https://wa.me/2348161220145" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-300 hover:text-emerald-400 transition-colors">Order on WhatsApp</a></li>
+              <li><a href="https://wa.me/2348028851717" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-300 hover:text-emerald-400 transition-colors">Order on WhatsApp</a></li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-gray-800 mt-12 pt-8 text-center flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-gray-400">
-            © {new Date().getFullYear()} Emmachi Imperial. All rights reserved.
+            © {new Date().getFullYear()} Emmachi Imperial Enterprises. All rights reserved.
           </p>
           <p className="text-sm text-gray-500">
-            Proudly serving Nigeria's food industry since 1994.
+            Proudly serving Nigeria's food industry since 1995.
           </p>
         </div>
       </div>

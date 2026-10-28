@@ -1,33 +1,22 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { ArrowRight, Users, Award, Truck, Shield, CheckCircle, Banknote, Package, MessageCircle, MapPin, Phone, Clock, Mail } from 'lucide-react';
+import { ArrowRight, Award, MessageCircle, MapPin, Phone, Clock, Mail } from 'lucide-react';
 import ThreeDCarousel from '../components/ThreeDCarousel';
 import ProductCarousel from '../components/ProductCarousel';
 import BentoGrid from '../components/BentoGrid';
 import heroImg from '../assets/emmachi-land.jpg';
 import awardImg from '../assets/Award.png';
-import load from '../assets/flour.jpeg';
+import './AwardSection.css';
 import dangote from '../assets/dangote.png';
 import bua from '../assets/bua.png';
 import mama from '../assets/mama.jpeg';
-import business from '../assets/Business.jpeg';
-import Sugar from '../assets/fsugar.png';
 import flour from '../assets/flourmills.png';
-import fflour from '../assets/fflour.png';
 import frice from '../assets/frice.png';
-import foil from '../assets/foil.png';
-import fspag from '../assets/fspag.png';
-import honeywellBakersDelight from '../assets/honeywell-bakers-delight.jpg';
 import goldenPennyFlour from '../assets/golden-penny-flour.jpeg';
-import stkRoyalYeast from '../assets/stk-royal-yeast.jpg';
 import goldenPennySugar from '../assets/golden-penny-sugar.jpg';
 import yeastt from '../assets/yeast.avif';
-import yeast from '../assets/yeast.jpg';
-import nono from '../assets/nono.jpg';
-import oil from '../assets/oil.png';
-import spices from '../assets/spices.png';
 
-const WHATSAPP_LINK = "https://wa.me/2348161220145?text=Hi%20Emmachi%20Imperial%2C%20I%27d%20like%20to%20place%20an%20order.";
+const WHATSAPP_LINK = "https://wa.me/2348028851717?text=Hi%20Emmachi%20Imperial%2C%20I%27d%20like%20to%20place%20an%20order.";
 
 const LandingPage = () => {
   const partners = [
@@ -42,7 +31,7 @@ const LandingPage = () => {
     {
       name: 'Premium Rice',
       badge: 'RICE',
-      description: 'Wholesale rice from trusted brands like Mama Africa and Royal Stallion, available in 50kg bags for bulk buyers.',
+      description: 'Wholesale rice from trusted brands like Gata Rice and Mama Pride Rice, available in 50kg bags for bulk buyers.',
       image: frice,
       whatsappText: "I'd like to order Premium Rice in bulk. Please send current prices."
     },
@@ -61,34 +50,25 @@ const LandingPage = () => {
       whatsappText: "I'd like to order Baking Flour in bulk. Please send available brands and prices."
     },
     {
-      name: 'Vegetable Oil',
-      badge: 'OIL',
-      description: "Kings, Devon Kings, and Turkey vegetable oil available in jerrycans and drums for restaurants, bakeries, and food businesses.",
-      image: foil,
-      whatsappText: "Please send pricing for Vegetable Oil in bulk quantities."
+      name: 'Yeast',
+      badge: 'YEAST',
+      description: 'STK Royal instant dry yeast and STK Royal Dough Conditioner/Improver for commercial bakeries.',
+      image: yeastt,
+      whatsappText: "Please send pricing for STK Royal yeast and dough improver."
     },
     {
-      name: 'Spaghetti',
-      badge: 'PASTA',
-      description: 'Golden Penny and Dangote spaghetti in wholesale cartons. Consistent supply for retailers and food distributors.',
-      image: fspag,
-      whatsappText: "I'd like to order Spaghetti in bulk. What brands and quantities are available?"
+      name: 'Margarine',
+      badge: 'MARGARINE',
+      description: 'Taroona margarine in 10kg buckets and 10kg cartons for commercial baking and food production.',
+      image: null,
+      whatsappText: "I'd like to order Taroona margarine. Please confirm pack sizes and prices."
     },
   ];
 
-  const highlights = [
-    { icon: <Award className="w-6 h-6 text-emerald-600" />, title: "Quality Assured", text: "Every product meets strict international food safety standards." },
-    { icon: <Truck className="w-6 h-6 text-emerald-600" />, title: "Reliable Delivery", text: "On-time, safe logistics and delivery anywhere across Nigeria." },
-    { icon: <Shield className="w-6 h-6 text-emerald-600" />, title: "Trusted Partner", text: "Building reliable relationships with 1,000+ businesses over 30 years." },
-    { icon: <Banknote className="w-6 h-6 text-emerald-600" />, title: "Competitive Pricing", text: "Direct manufacturer partnerships guarantee the best wholesale rates." },
-    { icon: <Package className="w-6 h-6 text-emerald-600" />, title: "Bulk Supply", text: "Scalable fulfillment to handle any commercial quantity seamlessly." },
-    { icon: <MessageCircle className="w-6 h-6 text-emerald-600" />, title: "Instant Support", text: "Fast and easy bulk ordering directly through our WhatsApp channel." }
-  ];
-
-  const stats = [
-    { number: '30+', label: 'Years Experience' },
-    { number: '50+', label: 'Products' },
-    { number: '99.9%', label: 'Quality Rate' },
+  const facts = [
+    { value: 'Iddo & Suru', label: 'Two Lagos outlets' },
+    { value: '100+', label: 'Businesses across Nigeria and counting' },
+    { value: '2023/24 & 2024/25', label: 'FMN B2B sales awards' },
   ];
 
   return (
@@ -97,10 +77,10 @@ const LandingPage = () => {
       {/* ═══ SEO Meta Tags ═══ */}
       <Helmet>
         <title>Emmachi Imperial — Premium Wholesale Food Ingredients in Lagos, Nigeria</title>
-        <meta name="description" content="Emmachi Imperial distributes premium wholesale sugar, flour, rice, pasta, cooking oil and spices across South-West Nigeria. Trusted partners: Dangote, BUA, Golden Penny. Same-day delivery from Lagos." />
+        <meta name="description" content="Emmachi Imperial distributes premium wholesale flour, sugar, yeast, rice and margarine across South-West Nigeria. Visit our Iddo and Suru Alaba outlets or ask for current availability on WhatsApp." />
         <link rel="canonical" href="https://emmachiimperial.com/" />
         <meta property="og:title" content="Emmachi Imperial — Premium Wholesale Food Ingredients in Lagos" />
-        <meta property="og:description" content="Wholesale sugar, flour, rice, pasta, cooking oil & spices. Dangote, BUA, Golden Penny. Same-day Lagos delivery." />
+        <meta property="og:description" content="Wholesale flour, sugar, yeast, rice & margarine. Browse available brands and request a wholesale quote on WhatsApp." />
         <meta property="og:url" content="https://emmachiimperial.com/" />
 
         {/* ═══ JSON-LD: WholesaleStore (Business Identity) ═══ */}
@@ -109,13 +89,13 @@ const LandingPage = () => {
             "@context": "https://schema.org",
             "@type": "WholesaleStore",
             "@id": "https://emmachiimperial.com/#business",
-            "name": "Emmachi Imperial",
+            "name": "Emmachi Imperial Enterprises",
             "alternateName": "Emmachi Imperial Nigeria",
-            "description": "Premium wholesale distributor of sugar, flour, rice, pasta, cooking oil, yeast, and spices across South-West Nigeria. Serving bakeries, restaurants, and food manufacturers since 1994.",
+            "description": "Premium wholesale distributor of flour, sugar, yeast, rice, and margarine across South-West Nigeria. Serving bakeries, restaurants, and food manufacturers since 1995.",
             "url": "https://emmachiimperial.com",
-            "telephone": "+2348161220145",
+            "telephone": "+2348028851717",
             "email": "emmachi2025@gmail.com",
-            "foundingDate": "1994",
+            "foundingDate": "1995",
             "image": "https://emmachiimperial.com/emmachi.svg",
             "logo": {
               "@type": "ImageObject",
@@ -155,8 +135,7 @@ const LandingPage = () => {
               "Wholesale sugar distribution",
               "Wholesale flour distribution",
               "Wholesale rice distribution",
-              "Wholesale cooking oil",
-              "Wholesale spaghetti and pasta",
+              "Wholesale margarine",
               "Wholesale yeast and baking supplies",
               "Food commodity trading in Nigeria"
             ],
@@ -165,7 +144,7 @@ const LandingPage = () => {
               { "@type": "Brand", "name": "BUA" },
               { "@type": "Brand", "name": "Golden Penny" },
               { "@type": "Brand", "name": "Honeywell" },
-              { "@type": "Brand", "name": "Mama Africa" },
+              { "@type": "Brand", "name": "Mama Pride" },
               { "@type": "Brand", "name": "STK Royal" }
             ],
             "sameAs": []
@@ -177,7 +156,7 @@ const LandingPage = () => {
           {
             "@context": "https://schema.org",
             "@type": "WebSite",
-            "name": "Emmachi Imperial",
+            "name": "Emmachi Imperial Enterprises",
             "url": "https://emmachiimperial.com",
             "publisher": {
               "@id": "https://emmachiimperial.com/#business"
@@ -186,138 +165,100 @@ const LandingPage = () => {
         `}</script>
       </Helmet>
 
-      {/* ==================== HERO SECTION - Split cinematic style ==================== */}
-      <section className="hero-cinematic min-h-screen flex items-center relative">
-        {/* Background image with slow zoom */}
+      {/* ==================== HERO SECTION ==================== */}
+      <section className="hero-cinematic">
         <div className="hero-cinematic-bg">
-          <img src={heroImg} alt="Emmachi Imperial distribution warehouse" />
+          <img src={heroImg} alt="Emmachi Imperial distribution warehouse" fetchPriority="high" />
         </div>
+        <div className="hero-cinematic-overlay" />
 
-        {/* Green gradient overlay */}
-        <div className="hero-cinematic-overlay"></div>
-
-        {/* Content */}
-        <div className="hero-cinematic-content w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            {/* Left Column: Big Bold Headline & Categories Subheading */}
-            <div className="lg:col-span-7 space-y-6">
-              <h1 className="text-5xl md:text-7xl font-extrabold text-white tracking-tight leading-[1.05]">
-                Reliable<br/>
-                Distribution<br/>
-                <span className="text-yellow-300">You Can Trust</span>
-              </h1>
-              <div className="text-xs md:text-sm font-semibold tracking-widest text-white/50 uppercase pt-4 border-t border-white/10 max-w-md">
-                Flour \ Sugar \ Rice \ Oil \ Spaghetti
-              </div>
+        <div className="hero-cinematic-content w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-36 pb-12 md:pt-40 md:pb-16">
+          <div className="max-w-2xl">
+            <h1 className="hero-title text-white">
+              Reliable distribution.<br />Built for your business.
+            </h1>
+            <p className="text-lg md:text-xl text-white/90 leading-relaxed max-w-lg mt-6">
+              Wholesale flour, sugar, yeast, rice and margarine for bakeries, retailers and food businesses. Speak with our Lagos team about your next order.
+            </p>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-7 mt-8">
+              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="hero-primary">
+                <MessageCircle className="w-5 h-5" aria-hidden="true" />
+                Contact Us Now
+              </a>
+              <Link to="/shop" className="inline-flex items-center justify-center sm:justify-start gap-2 text-white font-semibold underline underline-offset-4 decoration-white/40 hover:decoration-white transition-colors py-3">
+                Browse products <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              </Link>
             </div>
-
-            {/* Right Column: Description & Horizontal Buttons */}
-            <div className="lg:col-span-5 space-y-8 lg:pl-6">
-              <p className="text-lg md:text-xl text-white/80 leading-relaxed font-medium">
-                For over three decades, we have proudly supplied high-quality food ingredients and industrial raw materials to bakeries, manufacturers, and businesses across Nigeria.
-              </p>
-              
-              <div className="flex flex-wrap gap-4">
-                {/* Secondary Button: Outline Contact Us */}
-                <Link
-                  to="/shop"
-                  className="px-6 py-3 border border-white hover:border-white/80 rounded-full text-sm font-bold text-white hover:bg-white/10 transition-all duration-300 decoration-none"
-                >
-                  Browse Products
-                </Link>
-
-                {/* Primary Button: White background with WhatsApp Green Icon */}
-                <a
-                  href={WHATSAPP_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 px-6 py-3 bg-white hover:bg-gray-50 text-gray-900 rounded-full text-sm font-bold shadow-lg hover:shadow-white/5 transition-all duration-300 decoration-none"
-                >
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="#25D366">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                  </svg>
-                  <span>Order on WhatsApp</span>
-                </a>
-              </div>
-            </div>
-
           </div>
 
-          {/* Stats Bar at the bottom of the Hero Section */}
-          <div className="grid grid-cols-3 gap-6 max-w-lg mt-16 pt-8 border-t border-white/15">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-left">
-                <div className="text-2xl md:text-3xl font-extrabold text-yellow-300">{stat.number}</div>
-                <div className="text-xs text-white/50 uppercase tracking-widest mt-1 font-medium">{stat.label}</div>
+          <dl className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-8 max-w-3xl mt-12 md:mt-16 pt-6 border-t border-white/25">
+            {facts.map((fact) => (
+              <div key={fact.label}>
+                <dt className="text-sm text-white/75">{fact.label}</dt>
+                <dd className="text-lg font-semibold text-white mt-1">{fact.value}</dd>
               </div>
             ))}
-          </div>
-
+          </dl>
         </div>
       </section>
 
       {/* ==================== RECOGNITION & EXCELLENCE SECTION ==================== */}
-      <section id="about" className="py-20 md:py-28 bg-white">
+      <section id="about" className="scroll-mt-20 py-20 md:py-28 bg-[#fffdf8]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             {/* Left Column: Image with Award Badge Overlay */}
-            <div className="lg:col-span-5">
+            <div className="lg:col-span-5 pb-4">
               <div className="relative">
-                <div className="rounded-3xl shadow-xl overflow-hidden bg-gray-50 border border-gray-100 p-2">
+                <div className="rounded-3xl shadow-xl shadow-amber-900/10 overflow-hidden bg-white border border-amber-200/70 p-2">
                   <img
                     src={awardImg}
                     alt="Emmachi Imperial Enterprises B2B Sales Awards - Top Bread Flour Customer Lagos Region"
-                    className="w-full h-80 md:h-[440px] object-cover rounded-2xl"
+                    className="w-full h-80 md:h-[440px] object-contain rounded-2xl"
                   />
                 </div>
-                
-                {/* Floating Award Badge */}
-                <div 
-                  className="absolute -bottom-6 -right-2 md:-right-6 bg-amber-500 text-white p-4 md:p-5 rounded-2xl shadow-2xl max-w-[240px] border-2 border-white"
-                >
-                  <div className="flex items-center gap-2 mb-1">
-                    <Award className="w-5 h-5 text-yellow-100" />
-                    <span className="text-[10px] font-black uppercase tracking-wider text-yellow-100">Official Recognition</span>
+                <div className="absolute -bottom-6 right-2 md:-right-4 max-w-[230px] rounded-2xl border-2 border-white bg-gradient-to-br from-amber-400 to-amber-600 px-5 py-4 text-amber-950 shadow-xl shadow-amber-900/20">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Award className="w-4 h-4" aria-hidden="true" />
+                    <span className="text-xs font-semibold">FMN B2B Sales Awards</span>
                   </div>
-                  <div className="text-lg font-extrabold leading-tight">Top Bread Flour Customer</div>
-                  <div className="text-xs text-amber-100 mt-1 font-medium">Lagos Region (2023–2025)</div>
+                  <div className="font-display text-2xl font-bold leading-tight">Top Bread Flour Customer</div>
+                  <div className="text-sm mt-2">Lagos Region · 2023/24 &amp; 2024/25</div>
                 </div>
               </div>
+              <p className="text-sm text-gray-600 mt-12">Two consecutive years of recognition.</p>
             </div>
 
             {/* Right Column: Text & Milestones */}
             <div className="lg:col-span-7 space-y-6 lg:pl-6">
               <div>
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200/60 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-4">
-                  <Award className="w-3.5 h-3.5 text-emerald-600" />
-                  <span>Industry Recognition</span>
-                </div>
-                <div className="relative inline-block pb-2">
-                  <h2 className="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight">
-                    <span className="text-slate-900">Award-Winning Excellence in FMCG Distribution</span>
+                <p className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3.5 py-1.5 text-sm font-semibold text-emerald-800 mb-4">
+                  <Award className="w-4 h-4" aria-hidden="true" />
+                  Industry recognition
+                </p>
+                <div className="relative inline-block pb-4">
+                  <h2 aria-label="Award-Winning Excellence in FMCG Distribution" className="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight">
+                    <span aria-hidden="true" className="t-shimmer" data-text="Award-Winning Excellence in FMCG Distribution">Award-Winning Excellence in FMCG Distribution</span>
                   </h2>
-                  {/* Subtle Arc Stroke Accent */}
-                  <svg className="absolute -bottom-1 left-0 w-full h-4 text-emerald-500/50" viewBox="0 0 200 20" fill="none" preserveAspectRatio="none">
+                  <svg className="absolute -bottom-1 left-0 w-full h-4 text-emerald-500/60" viewBox="0 0 200 20" fill="none" preserveAspectRatio="none" aria-hidden="true">
                     <path d="M 0 6 Q 100 20 200 6" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
                   </svg>
                 </div>
               </div>
 
               <p className="text-base md:text-lg text-gray-600 leading-relaxed font-normal">
-                At Emmachi Imperial Enterprises, our commitment to reliability and scale has not gone unnoticed. We are proud to be consecutively recognized as the <strong className="text-gray-900 font-bold">Top Bread Flour Customer for the Lagos Region</strong> by <strong className="text-gray-900 font-bold">FMN</strong> and <strong className="text-gray-900 font-bold">Honeywell</strong> for the <strong className="text-gray-900 font-bold">2023/24</strong> and <strong className="text-gray-900 font-bold">2024/25</strong> B2B Sales years. These milestones reflect our deep market penetration, unwavering consistency, and dedication to bridging the gap between premium FMCG manufacturers and local businesses.
+                Our awards name Emmachi Imperial Enterprises as <strong className="text-gray-900 font-semibold">Top Bread Flour Customer, Lagos Region</strong> for the <strong className="text-gray-900 font-semibold">2023/24 and 2024/25</strong> B2B sales years. The recognition is shown in the awards pictured here.
               </p>
 
               {/* Achievement Highlights Grid */}
               <div className="grid grid-cols-2 gap-4 pt-2">
-                <div className="p-4 rounded-2xl bg-gray-50 border border-gray-100">
+                <div className="p-4 rounded-2xl bg-white border border-amber-200/70 shadow-sm">
                   <div className="text-2xl font-black text-emerald-700">2023–2025</div>
-                  <div className="text-xs text-gray-600 font-medium mt-0.5">Consecutive Award Winner</div>
+                  <div className="text-xs text-gray-600 font-medium mt-0.5">FMN B2B sales years</div>
                 </div>
-                <div className="p-4 rounded-2xl bg-gray-50 border border-gray-100">
+                <div className="p-4 rounded-2xl bg-white border border-emerald-200/70 shadow-sm">
                   <div className="text-2xl font-black text-emerald-700">Lagos Region</div>
-                  <div className="text-xs text-gray-600 font-medium mt-0.5">#1 Bread Flour Customer</div>
+                  <div className="text-xs text-gray-600 font-medium mt-0.5">Top Bread Flour Customer</div>
                 </div>
               </div>
 
@@ -341,14 +282,12 @@ const LandingPage = () => {
       <section id="partners" className="py-20 bg-gray-50/70 border-y border-gray-100 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
           <div className="text-center">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200/60 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-3">
-              <span>Direct Manufacturer Partnerships</span>
-            </div>
+            <p className="section-label">Available brands</p>
             <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">
               Brands We Distribute
             </h2>
             <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto mt-3 font-normal">
-              Direct partnerships with Nigeria's leading FMCG manufacturers guarantee 100% authentic products and consistent bulk supply.
+              Explore the brands in our catalogue. Ask our team about current stock, pack sizes and wholesale pricing.
             </p>
           </div>
         </div>
@@ -371,9 +310,7 @@ const LandingPage = () => {
 
           {/* Section Header */}
           <div className="text-center mb-10 md:mb-14">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200/60 text-emerald-800 text-[11px] font-bold uppercase tracking-wider mb-3">
-              <span>Get in Touch</span>
-            </div>
+            <p className="section-label">Find us in Lagos</p>
             <h2 className="text-2xl md:text-4xl font-extrabold text-gray-900 mb-3 tracking-tight">
               Visit Us or Place an Order
             </h2>
@@ -385,23 +322,23 @@ const LandingPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
 
             {/* Left - Contact Info */}
-            <div className="bg-white rounded-2xl border border-gray-200/70 p-6 md:p-8 space-y-6">
+            <div className="bg-white rounded-lg border border-gray-200/70 p-6 md:p-8 space-y-6">
               <h3 className="text-lg font-bold text-gray-900">Contact Us</h3>
 
               <div className="space-y-5">
                 {/* Phone */}
-                <a href="tel:+2348161220145" className="flex items-start gap-4 group">
+                <a href="tel:+2348028851717" className="flex items-start gap-4 group">
                   <div className="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center shrink-0 group-hover:bg-emerald-100 transition-colors">
                     <Phone className="w-5 h-5 text-emerald-600" />
                   </div>
                   <div>
                     <div className="text-sm font-bold text-gray-900">Phone</div>
-                    <div className="text-sm text-gray-500 group-hover:text-emerald-700 transition-colors">+234 816 122 0145</div>
+                    <div className="text-sm text-gray-500 group-hover:text-emerald-700 transition-colors">08028851717</div>
                   </div>
                 </a>
 
                 {/* WhatsApp */}
-                <a href="https://wa.me/2348161220145" target="_blank" rel="noopener noreferrer" className="flex items-start gap-4 group">
+                <a href="https://wa.me/2348028851717" target="_blank" rel="noopener noreferrer" className="flex items-start gap-4 group">
                   <div className="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center shrink-0 group-hover:bg-emerald-100 transition-colors">
                     <MessageCircle className="w-5 h-5 text-emerald-600" />
                   </div>
@@ -436,7 +373,7 @@ const LandingPage = () => {
 
               {/* WhatsApp CTA */}
               <a
-                href="https://wa.me/2348161220145"
+                href="https://wa.me/2348028851717"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full inline-flex items-center justify-center gap-2.5 py-3 px-5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm shadow-sm hover:shadow-md transition-all duration-200 active:scale-[0.97] mt-2"
@@ -452,7 +389,7 @@ const LandingPage = () => {
             <div className="space-y-5">
 
               {/* Location 1: Iddo */}
-              <div className="bg-white rounded-2xl border border-gray-200/70 p-6 md:p-8">
+              <div className="bg-white rounded-lg border border-gray-200/70 p-6 md:p-8">
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-xl bg-amber-50 flex items-center justify-center shrink-0">
                     <MapPin className="w-5 h-5 text-amber-600" />
@@ -460,7 +397,6 @@ const LandingPage = () => {
                   <div>
                     <div className="flex items-center gap-2 mb-1">
                       <h4 className="text-sm font-bold text-gray-900">Iddo Outlet</h4>
-                      <span className="text-[10px] font-bold uppercase tracking-wider bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-full border border-emerald-100">Iddo</span>
                     </div>
                     <p className="text-sm text-gray-500 leading-relaxed">
                       Heyden trailer park, Iddo underbridge, Iddo, Lagos
@@ -479,7 +415,7 @@ const LandingPage = () => {
               </div>
 
               {/* Location 2: Suru Alaba */}
-              <div className="bg-white rounded-2xl border border-gray-200/70 p-6 md:p-8">
+              <div className="bg-white rounded-lg border border-gray-200/70 p-6 md:p-8">
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-xl bg-amber-50 flex items-center justify-center shrink-0">
                     <MapPin className="w-5 h-5 text-amber-600" />
@@ -487,7 +423,6 @@ const LandingPage = () => {
                   <div>
                     <div className="flex items-center gap-2 mb-1">
                       <h4 className="text-sm font-bold text-gray-900">Suru Outlet</h4>
-                      <span className="text-[10px] font-bold uppercase tracking-wider bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full border border-gray-200">Suru Alaba</span>
                     </div>
                     <p className="text-sm text-gray-500 leading-relaxed">
                       A40, army mammy market, Suru Alaba
@@ -512,24 +447,20 @@ const LandingPage = () => {
 
       {/* ==================== FINAL CTA BANNER ==================== */}
       <section className="relative py-20 md:py-28 overflow-hidden">
-        {/* Dark gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-emerald-950 to-gray-900" />
-        {/* Subtle texture overlay */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(16,185,129,0.15),transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(245,158,11,0.08),transparent_50%)]" />
+        <div className="absolute inset-0 bg-depot" />
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">
-            Ready to Place Your Order?
+            Contact Us Now
           </h2>
           <p className="text-base md:text-lg text-gray-300 mb-10 max-w-xl mx-auto">
-            Whether you need 50 bags or 500, we've got you covered. Reach out however works best for you.
+            Whether you need 50 bags or 5,000 bags, we've got you covered. Send us a message and a representative will respond to you.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             {/* Primary: WhatsApp */}
             <a
-              href="https://wa.me/2348161220145"
+              href="https://wa.me/2348028851717"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm rounded-xl shadow-lg shadow-emerald-600/25 hover:shadow-emerald-500/30 transition-all duration-200 active:scale-[0.97]"
@@ -551,7 +482,7 @@ const LandingPage = () => {
 
             {/* Tertiary: Call */}
             <a
-              href="tel:+2348161220145"
+              href="tel:+2348028851717"
               className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-white/20 hover:border-white/40 hover:bg-white/10 text-white font-semibold text-sm rounded-xl transition-all duration-200 active:scale-[0.97]"
             >
               <Phone className="w-4 h-4" />

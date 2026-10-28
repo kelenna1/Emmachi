@@ -3,21 +3,17 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { ChevronRight, ArrowRight, CheckCircle2 } from 'lucide-react';
 import heroImg from '../assets/flour.jpeg';
-import dangote from '../assets/dangote.png';
-import bua from '../assets/bua.png';
-import flour from '../assets/flourmills.png';
-import yeastt from '../assets/yeast.avif';
 
-const WHATSAPP_LINK = "https://wa.me/2348161220145?text=Hi%20Emmachi%20Imperial%2C%20I%27d%20like%20to%20learn%20more%20about%20a%20wholesale%20partnership.";
+const WHATSAPP_LINK = "https://wa.me/2348028851717?text=Hi%20Emmachi%20Imperial%2C%20I%27d%20like%20to%20learn%20more%20about%20a%20wholesale%20partnership.";
 
 /* ─── Stat Card ─── */
-function StatCard({ value, suffix = '', label }) {
+function StatCard({ value, label }) {
   return (
     <div className="text-center px-6 py-4 md:py-0">
-      <div className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 tracking-tight">
-        {value.toLocaleString()}{suffix}
+      <div className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
+        {value}
       </div>
-      <div className="text-xs md:text-sm text-gray-500 mt-1 font-medium uppercase tracking-wider">
+      <div className="text-sm text-gray-600 mt-2">
         {label}
       </div>
     </div>
@@ -49,11 +45,11 @@ const AboutPage = () => {
             "@type": "Organization",
             "@id": "https://emmachiimperial.com/#business",
             "name": "Emmachi Imperial",
-            "description": "Premium wholesale food ingredient distributor serving bakeries, restaurants, and food manufacturers across South-West Nigeria since 1994.",
+            "description": "Premium wholesale food ingredient distributor serving bakeries, restaurants, and food manufacturers across South-West Nigeria since 1995.",
             "url": "https://emmachiimperial.com",
             "logo": "https://emmachiimperial.com/emmachi.svg",
-            "foundingDate": "1994",
-            "telephone": "+2348161220145",
+            "foundingDate": "1995",
+            "telephone": "+2348028851717",
             "email": "emmachi2025@gmail.com",
             "address": {
               "@type": "PostalAddress",
@@ -120,16 +116,16 @@ const AboutPage = () => {
           {/* Headline */}
           <div className="max-w-3xl">
             <div
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[11px] font-bold uppercase tracking-wider mb-6"
+              className="text-base text-white/80 mb-6"
             >
-              <span>Since 1994</span>
+              <span>Since 1995</span>
             </div>
 
             <h1
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.05] tracking-tight mb-6"
             >
               Driving Excellence in{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-emerald-300">
+              <span className="text-white">
                 Wholesale
               </span>{' '}
               Distribution
@@ -138,9 +134,7 @@ const AboutPage = () => {
             <p
               className="text-base md:text-lg text-gray-300 leading-relaxed max-w-xl mb-10"
             >
-              For over three decades, Emmachi Imperial has been the backbone of supply for
-              bakeries, food manufacturers, and retailers across Lagos and the South-West.
-              No middlemen. No shortcuts. Just reliable wholesale, every time.
+              For over three decades, we have built a reputation for reliability, competitive pricing, operational integrity, and efficient supply chain management. As an independent, owner-managed enterprise, we proudly serve food and drink manufacturing companies in the South-West and all over Nigeria.
             </p>
 
             <div
@@ -173,18 +167,18 @@ const AboutPage = () => {
       <section className="relative z-20 -mt-16 mb-16 md:mb-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <div
-            className="bg-white rounded-2xl shadow-xl shadow-gray-200/60 border border-gray-100 px-6 py-8 md:py-10"
+            className="bg-white rounded-lg shadow-xl shadow-gray-200/60 border border-gray-100 px-6 py-8 md:py-10"
           >
-            <div className="grid grid-cols-3 divide-x divide-gray-200">
-              <StatCard value={30} suffix="+" label="Years of Legacy" />
-              <StatCard value={50} suffix="+" label="Brands Partnered" />
-              <StatCard value={10000} suffix="+" label="Deliveries Fulfilled" />
+            <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-gray-200">
+              <StatCard value="Iddo & Suru" label="Lagos outlets" />
+              <StatCard value="10+" label="Wholesale products" />
+              <StatCard value="WhatsApp" label="Speak to our team" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* ==================== SECTION 2: OUR STORY & PHILOSOPHY ==================== */}
+      {/* ==================== SECTION 2: OUR STORY ==================== */}
       <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -204,7 +198,7 @@ const AboutPage = () => {
 
             {/* Left: Image */}
             <div className="relative">
-              <div className="rounded-3xl overflow-hidden shadow-2xl shadow-gray-200/50 border border-gray-100">
+              <div className="rounded-lg overflow-hidden shadow-2xl shadow-gray-200/50 border border-gray-100">
                 <img
                   src={heroImg}
                   alt="Emmachi Imperial warehouse and distribution operations"
@@ -213,9 +207,9 @@ const AboutPage = () => {
               </div>
               {/* Floating accent card */}
               <div
-                className="absolute -bottom-6 -right-4 md:-right-8 bg-gray-900 text-white px-5 py-4 rounded-2xl shadow-xl max-w-[200px] border border-gray-800"
+                className="absolute -bottom-6 -right-4 md:-right-8 bg-gray-900 text-white px-5 py-4 rounded-lg shadow-xl max-w-[200px] border border-gray-800"
               >
-                <div className="text-2xl md:text-3xl font-black">1994</div>
+                <div className="text-2xl md:text-3xl font-black">1995</div>
                 <div className="text-[11px] text-gray-400 font-medium mt-0.5">Year Founded</div>
               </div>
             </div>
@@ -223,8 +217,8 @@ const AboutPage = () => {
             {/* Right: Narrative */}
             <div className="space-y-6 lg:pt-4">
               <div>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200/60 text-emerald-800 text-[11px] font-bold uppercase tracking-wider mb-4">
-                  <span>Our Philosophy</span>
+                <div className="section-label">
+                  <span>Our Story</span>
                 </div>
                 <h3 className="text-2xl md:text-3xl font-extrabold text-gray-900 tracking-tight leading-tight">
                   Three decades of building trust, one delivery at a time.
@@ -232,27 +226,22 @@ const AboutPage = () => {
               </div>
 
               <p className="text-sm md:text-base text-gray-600 leading-relaxed">
-                Emmachi Imperial Enterprises was founded in 1994 with a simple belief: that businesses
-                deserve a supply partner they can count on. What started as a small-scale distribution
-                outfit in Lagos has grown into one of the most trusted wholesale operations in the
-                South-West, serving hundreds of bakeries, food manufacturers, and retailers.
+                Emmachi Imperial Enterprises was founded in 1995 with a simple belief: that businesses deserve a reliable supply system that they can count on. What started as a small-scale retail outfit in Lagos has grown into one of the top performing distribution enterprises in the South-West, serving a range of customers from food and drink manufacturers, all the way to small businesses and local retailers.
               </p>
 
               <p className="text-sm md:text-base text-gray-600 leading-relaxed">
-                Over three decades, we've built direct partnerships with major Nigerian manufacturers
-                like Flour Mills of Nigeria, Dangote, BUA, and Honeywell. Our approach is straightforward:
-                source directly, price fairly, and deliver consistently. No middlemen, no shortcuts.
+                Over the years, we have built direct partnerships with major Nigerian manufacturers like Flour Mills of Nigeria, Olam Agri, Dufil Foods, Dangote &amp; BUA. Our approach is straightforward: we source directly, price fairly, and deliver consistently.
               </p>
 
               {/* Milestone Timeline */}
               <div className="pt-4 space-y-4 border-t border-gray-100">
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center shrink-0">
-                    <span className="text-xs font-black text-emerald-700">94</span>
+                    <span className="text-xs font-black text-emerald-700">95</span>
                   </div>
                   <div>
                     <div className="text-sm font-bold text-gray-900">Founded in Lagos</div>
-                    <div className="text-xs text-gray-500">Started as a small distribution outlet serving local bakeries.</div>
+                    <div className="text-xs text-gray-500">Started as a small-scale retail outfit in Lagos.</div>
                   </div>
                 </div>
 
@@ -288,7 +277,7 @@ const AboutPage = () => {
 
           {/* Section Header */}
           <div className="text-center mb-14 md:mb-20">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200/60 text-emerald-800 text-[11px] font-bold uppercase tracking-wider mb-3">
+            <div className="section-label">
               <span>What We Stand For</span>
             </div>
             <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 tracking-tight">
@@ -301,7 +290,7 @@ const AboutPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
 
             {/* Mission */}
-            <div className="bg-white rounded-2xl border border-gray-200/70 p-8 md:p-10 relative overflow-hidden group hover:border-emerald-200 transition-colors">
+            <div className="bg-white rounded-lg border border-gray-200/70 p-8 md:p-10 relative overflow-hidden group hover:border-emerald-200 transition-colors">
               <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:bg-emerald-100 transition-colors" />
               <div className="relative z-10">
                 <h3 className="text-xl md:text-2xl font-extrabold text-gray-900 mb-3">Our Mission</h3>
@@ -314,7 +303,7 @@ const AboutPage = () => {
             </div>
 
             {/* Vision */}
-            <div className="bg-white rounded-2xl border border-gray-200/70 p-8 md:p-10 relative overflow-hidden group hover:border-emerald-200 transition-colors">
+            <div className="bg-white rounded-lg border border-gray-200/70 p-8 md:p-10 relative overflow-hidden group hover:border-emerald-200 transition-colors">
               <div className="absolute top-0 right-0 w-32 h-32 bg-amber-50 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:bg-amber-100 transition-colors" />
               <div className="relative z-10">
                 <h3 className="text-xl md:text-2xl font-extrabold text-gray-900 mb-3">Our Vision</h3>
@@ -334,14 +323,14 @@ const AboutPage = () => {
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {[
-                { title: 'Uncompromising Quality', desc: 'Every product sourced directly from verified manufacturers. No counterfeits, ever.' },
-                { title: 'Real Wholesale Pricing', desc: 'Direct partnerships mean factory-level prices passed straight to you.' },
-                { title: 'On-Time Logistics', desc: 'We show up when we say we will. Reliable delivery across Lagos and Ogun.' },
+                { title: 'Product Information', desc: 'Ask about the brand, pack size and specifications for your order.' },
+                { title: 'Clear Wholesale Quotes', desc: 'Confirm current prices and availability with our team before ordering.' },
+                { title: 'Reliable Delivery', desc: 'We show up when we say we will. Reliable delivery across Lagos, the South-West region and Nigeria.' },
                 { title: 'Customer First', desc: 'Your business growth is our business. We adapt to your supply needs.' },
               ].map((value, i) => (
                 <div
                   key={i}
-                  className="bg-white rounded-2xl border border-gray-200/70 p-6 hover:border-emerald-200 transition-colors group"
+                  className="bg-white rounded-lg border border-gray-200/70 p-6 hover:border-emerald-200 transition-colors group"
                 >
                   <div className="flex items-center gap-3 mb-3">
                     <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
@@ -361,21 +350,20 @@ const AboutPage = () => {
 
       {/* ==================== FINAL CTA ==================== */}
       <section className="py-20 md:py-28 bg-emerald-700 text-center px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.1),transparent_50%)]" />
         
         <div className="relative z-10 max-w-3xl mx-auto">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight mb-6 leading-tight">
             Ready to scale your supply?
           </h2>
           <p className="text-emerald-100 text-lg md:text-xl mb-10">
-            Join the hundreds of businesses that rely on us for consistent, well-priced wholesale ingredients.
+            Share your product list, quantities and delivery location. Our team will help you plan your next order.
           </p>
           
           <a
             href={WHATSAPP_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-emerald-800 font-extrabold text-lg rounded-2xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
+            className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-emerald-800 font-extrabold text-lg rounded-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
           >
             <svg viewBox="0 0 24 24" width="20" height="20" fill="#25D366" className="shrink-0">
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>

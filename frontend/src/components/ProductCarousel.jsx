@@ -1,11 +1,33 @@
 import { useState, useEffect, useRef } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Package, Pause, Play } from 'lucide-react';
 
-const WHATSAPP_NUMBER = '2348161220145';
+const WHATSAPP_NUMBER = '2348028851717';
 
 const ProductCarousel = ({ products = [] }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const containerRef = useRef(null);
+  const sectionRef = useRef(null);
+  const interactionUntil = useRef(0);
+  const [autoplay, setAutoplay] = useState(true);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container || products.length < 2 || !autoplay) return;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const timer = window.setInterval(() => {
+      if (reducedMotion.matches || document.hidden ||
+          sectionRef.current?.matches(':hover, :focus-within') ||
+          Date.now() < interactionUntil.current) return;
+      const maximum = container.scrollWidth - container.clientWidth;
+      if (maximum <= 0) return;
+      const amount = (container.firstElementChild?.offsetWidth || 280) + 20;
+      container.scrollTo({
+        left: container.scrollLeft >= maximum - 2 ? 0 : Math.min(container.scrollLeft + amount, maximum),
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+      });
+    }, 3500);
+    return () => window.clearInterval(timer);
+  }, [autoplay, products.length]);
   // Track active card based on scroll position
   useEffect(() => {
     const container = containerRef.current;
@@ -14,7 +36,10 @@ const ProductCarousel = ({ products = [] }) => {
     const handleScroll = () => {
       const cardWidth = container.firstElementChild?.offsetWidth || 280;
       const gap = 20; // gap-5 = 1.25rem = 20px
-      const index = Math.round(container.scrollLeft / (cardWidth + gap));
+      const maximum = container.scrollWidth - container.clientWidth;
+      const index = maximum > 0 && container.scrollLeft >= maximum - 2
+        ? products.length - 1
+        : Math.round(container.scrollLeft / (cardWidth + gap));
       setActiveIndex(products.length ? Math.min(index, products.length - 1) : 0);
     };
 
@@ -52,19 +77,17 @@ const ProductCarousel = ({ products = [] }) => {
   return (
     <section
       id="products"
+      ref={sectionRef}
+      aria-label="Featured product categories"
+      onPointerDown={() => { interactionUntil.current = Date.now() + 7000; }}
+      onWheel={() => { interactionUntil.current = Date.now() + 7000; }}
       className="py-16 md:py-20 bg-gray-50/40 border-b border-gray-100 relative overflow-hidden"
     >
-      {/* Subtle Ambient Glow */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-emerald-500/5 blur-[120px] pointer-events-none rounded-full" />
-
       {/* Section Header */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-10 md:mb-12">
         <div className="text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200/60 text-emerald-800 text-[11px] font-bold uppercase tracking-wider mb-2.5">
-            <span>Comprehensive Supply Network</span>
-          </div>
           <h2 className="text-2xl md:text-4xl font-extrabold text-gray-900 tracking-tight">
-            Featured Product <span className="text-emerald-700">Categories</span>
+            Featured product categories
           </h2>
           <p className="text-sm md:text-base text-gray-600 max-w-xl mx-auto mt-2.5 font-normal">
             Premium wholesale ingredients for bakeries, manufacturers, and food producers across Nigeria.
@@ -96,34 +119,22 @@ const ProductCarousel = ({ products = [] }) => {
 
                   {/* Image */}
                   <div className="relative h-40 sm:h-44 w-full overflow-hidden bg-gray-100">
-                    <img
+                    {product.image ? (<img
                       src={product.image}
                       alt={product.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                       loading="lazy"
-                    />
+                    />) : (<div className="h-full flex flex-col items-center justify-center gap-3 bg-emerald-50 text-emerald-800"><Package className="w-12 h-12" aria-hidden="true" /><span className="text-sm font-semibold">{product.name}</span></div>)}
 
-                    {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/50 via-transparent to-transparent" />
-
-                    {/* Badge */}
-                    <span className="absolute top-3 left-3 bg-black/50 backdrop-blur-md text-white text-[10px] sm:text-[11px] font-semibold px-2 py-1 rounded-lg border border-white/20 tracking-wide">
-                      {product.badge}
-                    </span>
-
-                    {/* Bulk Ready */}
-                    <span className="absolute bottom-3 right-3 bg-emerald-600/90 backdrop-blur-sm text-white text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded shadow-sm uppercase tracking-wider">
-                      Bulk Ready
-                    </span>
                   </div>
 
                   {/* Content */}
                   <div className="p-4 sm:p-5 flex flex-col flex-grow justify-between">
                     <div>
-                      <h3 className="text-sm sm:text-base font-bold text-gray-900 group-hover:text-emerald-700 transition-colors">
+                      <h3 className="text-2xl font-bold text-gray-900 group-hover:text-emerald-700 transition-colors">
                         {product.name}
                       </h3>
-                      <p className="text-[11px] sm:text-xs text-gray-500 mt-1.5 line-clamp-3 leading-relaxed">
+                      <p className="text-sm text-gray-600 mt-2 line-clamp-3 leading-relaxed">
                         {product.description}
                       </p>
                     </div>
@@ -187,6 +198,20 @@ const ProductCarousel = ({ products = [] }) => {
             </svg>
           </button>
         </div>
+
+        {products.length > 1 && (
+          <div className="flex justify-center mt-4 motion-reduce:hidden">
+            <button
+              type="button"
+              onClick={() => setAutoplay((playing) => !playing)}
+              aria-label={autoplay ? 'Pause automatic product scrolling' : 'Resume automatic product scrolling'}
+              className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-emerald-700 px-3 py-2 rounded-lg focus-visible:outline-2 focus-visible:outline-emerald-600"
+            >
+              {autoplay ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
+              {autoplay ? 'Pause auto-scroll' : 'Resume auto-scroll'}
+            </button>
+          </div>
+        )}
 
         {/* Bottom CTA */}
         <div className="text-center mt-10 md:mt-12">

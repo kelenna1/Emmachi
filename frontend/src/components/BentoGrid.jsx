@@ -1,245 +1,61 @@
-import { motion as Motion, useMotionValue, useTransform } from "framer-motion";
-
-const cn = (...classes) => classes.filter(Boolean).join(" ");
-
-const bentoItems = [
+const benefits = [
   {
-    id: "legacy",
-    title: "30+ Years in the Game",
-    description:
-      "Three decades of consistent supply, real relationships, and zero shortcuts.",
-    feature: "timeline",
-    timeline: [
-      { year: "1994", event: "Emmachi Imperial founded in Lagos" },
-      { year: "2005", event: "Expanded distribution across South-West" },
-      { year: "2024", event: "Serving 1,000+ businesses and counting" },
-    ],
-    className: "col-span-1 md:col-span-1",
+    title: 'Recognition you can see',
+    description: 'FMN named Emmachi Imperial Enterprises Top Bread Flour Customer, Lagos Region, in two consecutive B2B sales years.',
+    details: ['2023/24 B2B Sales Award', '2024/25 B2B Sales Award'],
   },
   {
-    id: "capacity",
-    title: "Built for Volume",
-    description:
-      "Whether it's 50 bags or 500, we handle it without breaking a sweat.",
-    feature: "counter",
-    statistic: {
-      start: 0,
-      end: 1000,
-      suffix: "+",
-      label: "Businesses Served",
-    },
-    className: "col-span-1 md:col-span-1",
+    title: 'A place to meet our team',
+    description: 'Visit either Lagos outlet to discuss products and your wholesale requirements.',
+    details: ['Iddo — Heyden trailer park, Iddo underbridge', 'Suru Alaba — A40, Army Mammy Market'],
   },
   {
-    id: "value",
-    title: "Wholesale Pricing, No Surprises",
-    description:
-      "Direct manufacturer partnerships mean you get real wholesale rates - not marked-up middleman prices.",
-    feature: "chart",
-    statistic: {
-      label: "Savings vs. open market",
-      end: 85,
-      suffix: "%",
-    },
-    className: "col-span-1 md:col-span-1",
+    title: 'A quote for your order',
+    description: 'Tell us the brand, pack size and quantity you need. Our team will confirm stock and current prices before you order.',
+    details: ['Pricing based on your product list', 'Delivery arrangements confirmed with our team'],
   },
   {
-    id: "access",
-    title: "Order Directly on WhatsApp",
-    description:
-      "No apps to download, no long forms. Just message us and we sort it out.",
-    feature: "typing",
-    typingText:
-      "You: I need 200 bags of Golden Penny flour, deliver to Ikeja.\n\nEmmachi: Noted. We'll have it to you by tomorrow morning. ✓✓",
-    className: "col-span-1 md:col-span-1",
+    title: 'A direct conversation',
+    description: 'Start your enquiry on WhatsApp. Send your requirements and delivery location so our team can help.',
+    details: ['Product or brand', 'Quantity and delivery location'],
+    action: true,
   },
 ];
 
-const CounterAnimation = ({ end, suffix = "" }) => {
-  return (
-    <div className="flex items-baseline gap-1">
-      <span className="font-bold text-3xl text-gray-900">
-        {end.toFixed(0)}
-      </span>
-      <span className="font-semibold text-emerald-600 text-xl">
-        {suffix}
-      </span>
-    </div>
-  );
-};
-
-const ChartAnimation = ({ value }) => (
-  <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-gray-100">
-    <div
-      className="h-full rounded-full bg-emerald-500"
-      style={{ width: `${value}%` }}
-    />
-  </div>
-);
-
-const TimelineFeature = ({ timeline }) => (
-  <div className="relative mt-4">
-    <div className="absolute top-0 bottom-0 left-[9px] w-[2px] bg-gray-100" />
-    {timeline.map((item, index) => (
-      <div
-        className="relative mb-4 last:mb-0 flex gap-4"
-        key={index}
-      >
-        <div className="z-10 mt-1 h-5 w-5 flex-shrink-0 rounded-full border-[3px] border-white bg-emerald-500 shadow-sm" />
-        <div>
-          <div className="font-bold text-gray-900 text-sm">
-            {item.year}
-          </div>
-          <div className="text-gray-500 text-sm">
-            {item.event}
-          </div>
-        </div>
-      </div>
-    ))}
-  </div>
-);
-
-const TypingCodeFeature = ({ text }) => {
-  return (
-    <div className="relative mt-3">
-      <div className="mb-2 flex items-center gap-2">
-        <div className="flex gap-1.5">
-          <div className="w-2 h-2 rounded-full bg-gray-300"></div>
-          <div className="w-2 h-2 rounded-full bg-gray-300"></div>
-          <div className="w-2 h-2 rounded-full bg-emerald-400"></div>
-        </div>
-        <div className="text-gray-400 text-[11px] font-medium ml-1.5">
-          WhatsApp
-        </div>
-      </div>
-      <div
-        className="h-[110px] overflow-y-auto rounded-lg bg-gray-50 p-4 font-sans text-gray-700 text-sm border border-gray-100"
-      >
-        <pre className="whitespace-pre-wrap leading-relaxed font-sans text-sm">
-          {text}
-        </pre>
-      </div>
-    </div>
-  );
-};
-
-const BentoCard = ({ item }) => {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const rotateX = useTransform(y, [-100, 100], [2, -2]);
-  const rotateY = useTransform(x, [-100, 100], [-2, 2]);
-
-  function handleMouseMove(event) {
-    const rect = event.currentTarget.getBoundingClientRect();
-    const mouseX = event.clientX - rect.left;
-    const mouseY = event.clientY - rect.top;
-    const xPct = mouseX / rect.width - 0.5;
-    const yPct = mouseY / rect.height - 0.5;
-    x.set(xPct * 100);
-    y.set(yPct * 100);
-  }
-
-  function handleMouseLeave() {
-    x.set(0);
-    y.set(0);
-  }
-
-  return (
-    <Motion.div
-      className={cn("h-full", item.className)}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        rotateX,
-        rotateY,
-        transformStyle: "preserve-3d",
-      }}
-      transition={{ type: "spring", stiffness: 400, damping: 30 }}
-    >
-      <div
-        className="group relative flex h-full flex-col rounded-2xl border border-gray-200/70 bg-white p-6 md:p-7 transition-all duration-300 hover:border-gray-300/80 hover:shadow-lg overflow-hidden"
-      >
-        {/* Hover glow */}
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none" />
-        
-        <div className="relative z-10 flex h-full flex-col gap-2">
-          <h3 className="font-bold text-gray-900 text-lg tracking-tight group-hover:text-emerald-700 transition-colors duration-200">
-            {item.title}
-          </h3>
-
-          <p className="text-gray-500 text-[13px] leading-relaxed">
-            {item.description}
-          </p>
-
-          {/* Feature content */}
-
-
-          {item.feature === "counter" && item.statistic && (
-            <div className="mt-auto pt-4">
-              <CounterAnimation
-                end={item.statistic.end || 100}
-                suffix={item.statistic.suffix}
-              />
-              <div className="text-xs font-medium text-gray-400 mt-1">
-                {item.statistic.label}
-              </div>
-            </div>
-          )}
-
-          {item.feature === "chart" && item.statistic && (
-            <div className="mt-auto pt-4">
-              <div className="mb-1.5 flex items-center justify-between">
-                <span className="font-medium text-gray-500 text-xs">
-                  {item.statistic.label}
-                </span>
-                <span className="font-bold text-emerald-600 text-sm">
-                  {item.statistic.end}
-                  {item.statistic.suffix}
-                </span>
-              </div>
-              <ChartAnimation value={item.statistic.end || 0} />
-            </div>
-          )}
-
-          {item.feature === "timeline" && item.timeline && (
-            <TimelineFeature timeline={item.timeline} />
-          )}
-
-          {item.feature === "typing" && item.typingText && (
-            <TypingCodeFeature text={item.typingText} />
-          )}
-
-
-        </div>
-      </div>
-    </Motion.div>
-  );
-};
-
 export default function BentoGrid() {
   return (
-    <section className="relative overflow-hidden bg-white py-16 md:py-24">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Section Header */}
+    <section className="bg-white py-16 md:py-24">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 md:mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200/60 text-emerald-800 text-[11px] font-bold uppercase tracking-wider mb-3">
-            <span>Why Emmachi</span>
-          </div>
-          <h2 className="text-2xl md:text-4xl font-extrabold text-gray-900 mb-3 tracking-tight">
-            Why Businesses Choose Us
-          </h2>
-          <p className="text-sm md:text-base text-gray-500 max-w-md mx-auto">
-            Consistent supply, honest pricing, and three decades of doing what we said we'd do.
+          <h2 className="text-3xl md:text-5xl text-gray-900 mb-3">Why businesses choose us</h2>
+          <p className="text-base text-gray-600 max-w-lg mx-auto">
+            Awards you can inspect, outlets you can visit, and a team you can speak to.
           </p>
         </div>
-
-        {/* Bento Grid - 2x2 on both mobile and desktop */}
-        <div
-          className="grid gap-4 md:gap-5 grid-cols-2 auto-rows-[minmax(180px,auto)]"
-        >
-          {bentoItems.map((item) => (
-            <BentoCard key={item.id} item={item} />
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {benefits.map((benefit) => (
+            <article key={benefit.title} className="border-t-2 border-depot pt-6 pb-4">
+              <h3 className="text-2xl md:text-3xl text-gray-900 mb-3">{benefit.title}</h3>
+              <p className="text-base text-gray-600 leading-relaxed max-w-lg">{benefit.description}</p>
+              <ul className="mt-5 space-y-2 text-sm text-gray-700">
+                {benefit.details.map((detail) => (
+                  <li key={detail} className="flex gap-3">
+                    <span aria-hidden="true" className="text-depot">•</span>
+                    <span>{detail}</span>
+                  </li>
+                ))}
+              </ul>
+              {benefit.action && (
+                <a
+                  href="https://wa.me/2348028851717"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block mt-5 text-depot font-semibold underline underline-offset-4 hover:text-emerald-800 transition-colors"
+                >
+                  Start a WhatsApp enquiry
+                </a>
+              )}
+            </article>
           ))}
         </div>
       </div>

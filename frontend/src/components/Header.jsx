@@ -19,7 +19,7 @@ const Header = () => {
   const isHome = location.pathname === '/';
   const isTransparent = isHome && !isScrolled;
 
-  const whatsappLink = "https://wa.me/2348161220145?text=Hi%20Emmachi%20Imperial%2C%20I%27d%20like%20to%20place%20an%20order.";
+  const whatsappLink = "https://wa.me/2348028851717?text=Hi%20Emmachi%20Imperial%2C%20I%27d%20like%20to%20place%20an%20order.";
 
   // Track scroll position for dynamic styling transitions
   useEffect(() => {
@@ -41,14 +41,14 @@ const Header = () => {
         setIsMenuOpen(false);
       }
     };
-    
+
     if (isMenuOpen) {
       document.addEventListener("mousedown", handleClickOutside);
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
     }
-    
+
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
       document.body.style.overflow = 'unset';
@@ -61,32 +61,32 @@ const Header = () => {
   }, [location.pathname]);
 
   return (
-    <header 
+    <header
       ref={headerRef}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
-        isTransparent 
-          ? "bg-transparent border-b border-white/10 py-5" 
-          : "bg-white/80 backdrop-blur-xl border-b border-green-900/10 shadow-sm py-3"
+        isTransparent
+          ? "bg-transparent border-b border-white/10 py-5"
+          : "bg-white border-b border-green-900/10 shadow-sm py-3"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
-          
+
           {/* Logo with dynamic theme text color */}
           <Link to="/" className="flex items-center space-x-3 group decoration-none">
             <div className="p-1.5 rounded-sm bg-white/10 backdrop-blur-sm group-hover:scale-105 transition-transform duration-300">
-              <img src={logo} alt="Emmachi Imperial" className="w-9 h-9" />
+              <img src={logo} alt="Emmachi Imperial Enterprises" className="w-9 h-9" />
             </div>
             <div className="flex flex-col">
-              <span 
-                className={`text-xl font-bold tracking-tight transition-colors duration-300 ${
+              <span
+                  className={`font-display text-base sm:text-lg lg:text-xl font-bold tracking-tight transition-colors duration-300 ${
                   isTransparent ? "text-white" : "text-green-900"
                 }`}
               >
-                Emmachi Imperial
+                Emmachi Imperial Enterprises
               </span>
-              <span 
-                className={`text-xs font-semibold tracking-wider uppercase transition-colors duration-300 ${
+              <span
+                className={`text-sm font-normal transition-colors duration-300 ${
                   isTransparent ? "text-yellow-300" : "text-green-700"
                 }`}
               >
@@ -96,14 +96,14 @@ const Header = () => {
           </Link>
 
           {/* Centered Navigation Links with Rectangular Hovers */}
-          <nav className="hidden md:flex items-center space-x-1">
+          <nav className="hidden xl:flex items-center space-x-1">
             {navigation.map((item) => {
               const isActive = location.pathname === item.href;
               return (
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`px-4 py-2 text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
+                  className={`px-4 py-2 text-sm font-semibold transition-colors duration-200 ${
                     isTransparent
                       ? isActive
                         ? "text-yellow-300 bg-white/10 border-b-2 border-yellow-300"
@@ -120,9 +120,9 @@ const Header = () => {
           </nav>
 
           {/* Desktop Right Side: WhatsApp Order Action + Call Us */}
-          <div className="hidden md:flex items-center space-x-3">
+          <div className="hidden xl:flex items-center space-x-3">
             <a
-              href="tel:+2348161220145"
+              href="tel:+2348028851717"
               className={`flex items-center space-x-1.5 px-4 py-2 text-xs font-bold uppercase tracking-wider border transition-all duration-300 decoration-none ${
                 isTransparent
                   ? "border-white/20 text-white hover:bg-white/10"
@@ -130,7 +130,7 @@ const Header = () => {
               }`}
             >
               <Phone className="w-3.5 h-3.5" />
-              <span>Call Us</span>
+              <span>Contact Us Now</span>
             </a>
 
             <a
@@ -149,8 +149,8 @@ const Header = () => {
               <Link
                 to="/admin"
                 className={`p-2 rounded-sm transition-colors ${
-                  isTransparent 
-                    ? "text-white/80 hover:text-white hover:bg-white/10" 
+                  isTransparent
+                    ? "text-white/80 hover:text-white hover:bg-white/10"
                     : "text-gray-600 hover:text-emerald-800 hover:bg-emerald-50"
                 }`}
                 title="Admin Dashboard"
@@ -162,10 +162,12 @@ const Header = () => {
 
           {/* Mobile menu button */}
           <button
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMenuOpen}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className={`md:hidden p-2 rounded-sm transition-all ${
-              isTransparent 
-                ? "text-white hover:bg-white/10" 
+            className={`xl:hidden p-2 rounded-sm transition-all ${
+              isTransparent
+                ? "text-white hover:bg-white/10"
                 : "text-emerald-900 hover:bg-emerald-50"
             }`}
           >
@@ -175,7 +177,7 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden">
+          <div className="xl:hidden">
             <div className="px-2 pt-3 pb-4 space-y-2 bg-white rounded-md shadow-xl mt-3 border border-emerald-900/10">
               {navigation.map((item) => (
                 <Link
@@ -191,16 +193,16 @@ const Header = () => {
                   {item.name}
                 </Link>
               ))}
-              
+
               <div className="pt-3 border-t border-gray-100 px-4 space-y-3">
-                <a 
-                  href="tel:+2348161220145" 
+                <a
+                  href="tel:+2348028851717"
                   className="flex items-center text-sm font-semibold text-gray-700 hover:text-emerald-800 no-underline"
                 >
                   <Phone className="w-4 h-4 mr-2 text-emerald-600" />
-                  +234 816 122 0145
+                  08028851717
                 </a>
-                
+
                 <a
                   href={whatsappLink}
                   target="_blank"

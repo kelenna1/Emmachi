@@ -7,19 +7,14 @@ import { Link } from 'react-router-dom';
 import fsugar from '../assets/fsugar.png';
 import fflour from '../assets/fflour.png';
 import frice from '../assets/frice.png';
-import foil from '../assets/foil.png';
-import fspag from '../assets/fspag.png';
-import yeastImg from '../assets/yeast.jpg';
-import spicesImg from '../assets/spices.png';
 
 // Real product images
 import honeywellBakersDelight from '../assets/honeywell-bakers-delight.jpg';
 import goldenPennyFlour from '../assets/golden-penny-flour.jpeg';
-import honeywellSuperfine from '../assets/honeywell-superfine-flour.jpg';
 import stkRoyalYeast from '../assets/stk-royal-yeast.jpg';
 import goldenPennySugar from '../assets/golden-penny-sugar.jpg';
 
-const WHATSAPP_NUMBER = '2348161220145';
+const WHATSAPP_NUMBER = '2348028851717';
 
 const PRODUCTS = [
   {
@@ -78,88 +73,88 @@ const PRODUCTS = [
   },
   {
     id: 'flr-4',
-    name: 'Honeywell Superfine Flour',
+    name: 'Honeywell Mix and Bake Flour',
     category: 'Flour',
     badge: 'FLOUR',
     brand: 'Honeywell',
-    image: honeywellSuperfine,
-    description: 'Extra fine white flour ideal for delicate cakes, puff pastries, chin-chin, and confectionery recipes.',
+    image: null,
+    description: 'Mix and Bake flour for commercial baking. Contact us for current pack sizes and pricing.',
   },
   {
     id: 'rce-1',
-    name: 'Mama Africa Thai Premium Rice',
+    name: 'Gata Rice',
     category: 'Rice',
     badge: 'RICE',
-    brand: 'Mama Africa',
+    brand: 'Gata',
     image: frice,
     description: '100% sortexed long grain white rice (50kg). Clean, stone-free, and high yielding for catering and retail.',
   },
   {
     id: 'rce-2',
-    name: 'Royal Stallion Rice',
+    name: 'Mama Pride Rice',
     category: 'Rice',
     badge: 'RICE',
-    brand: 'Stallion',
+    brand: 'Mama Pride',
     image: frice,
     description: 'Premium parboiled long grain rice in 50kg bags. Consistent grain length, perfect for restaurants and food vendors.',
   },
   {
-    id: 'oil-1',
-    name: 'Devon Kings Vegetable Oil',
-    category: 'Oil',
-    badge: 'OIL',
-    brand: 'PZ Wilmar',
-    image: foil,
-    description: 'Pure refined vegetable oil in commercial jerrycans and drums. High smoke point for deep frying and cooking.',
-  },
-  {
-    id: 'oil-2',
-    name: 'Golden Penny Vegetable Oil',
-    category: 'Oil',
-    badge: 'OIL',
-    brand: 'Golden Penny',
-    image: foil,
-    description: 'Vitamin A fortified refined cooking oil packaged for commercial kitchens, bakeries, and wholesale resellers.',
-  },
-  {
-    id: 'spg-1',
-    name: 'Golden Penny Spaghetti',
-    category: 'Spaghetti',
-    badge: 'PASTA',
-    brand: 'Golden Penny',
-    image: fspag,
-    description: 'Wholesale cartons of premium durum wheat semolina spaghetti. Non-sticky texture for commercial food service.',
-  },
-  {
-    id: 'spg-2',
-    name: 'Dangote Spaghetti',
-    category: 'Spaghetti',
-    badge: 'PASTA',
-    brand: 'Dangote',
-    image: fspag,
-    description: 'Fast-cooking quality pasta in bulk cartons. High demand staple for retail stores, supermarkets, and institutions.',
-  },
-  {
     id: 'yst-1',
     name: 'STK Royal Active Instant Dry Yeast',
-    category: 'Yeast & Baking',
+    category: 'Yeast',
     badge: 'BAKING',
     brand: 'STK Royal',
     image: stkRoyalYeast,
     description: 'High fermentation active dry yeast for rapid dough rising and reliable proofing in commercial bakeries.',
   },
   {
-    id: 'spc-1',
-    name: 'Commercial Seasonings & Spices',
-    category: 'Seasonings',
-    badge: 'SEASONINGS',
-    brand: 'Emmachi Select',
-    image: spicesImg,
-    description: 'Bulk savory seasoning blends and culinary spices for food processing, restaurants, and catering operations.',
+    "id": "flr-5",
+    "name": "Mama Gold Flour",
+    "category": "Flour",
+    "brand": "Mama Gold",
+    "description": "Mama Gold flour for wholesale buyers. Ask our team for pack sizes and current prices.",
+    "badge": "FLOUR",
+    "image": null
+  },
+  {
+    "id": "flr-6",
+    "name": "Diamond Flour",
+    "category": "Flour",
+    "brand": "Diamond",
+    "description": "Diamond flour for commercial baking. Contact us for current availability and pricing.",
+    "badge": "FLOUR",
+    "image": null
+  },
+  {
+    "id": "yst-2",
+    "name": "STK Royal Dough Conditioner/Improver",
+    "category": "Yeast",
+    "brand": "STK Royal",
+    "description": "STK Royal dough conditioner/improver for commercial bakeries. Ask for pack sizes and current pricing.",
+    "badge": "YEAST",
+    "image": null
+  },
+  {
+    "id": "mar-1",
+    "name": "Taroona Margarine — 10kg Bucket",
+    "category": "Margarine",
+    "brand": "Taroona",
+    "description": "Taroona margarine in a 10kg bucket for commercial baking and food production.",
+    "badge": "MARGARINE",
+    "image": null
+  },
+  {
+    "id": "mar-2",
+    "name": "Taroona Margarine — 10kg Carton",
+    "category": "Margarine",
+    "brand": "Taroona",
+    "description": "Taroona margarine in a 10kg carton for wholesale buyers. Contact our team for current availability and pricing.",
+    "badge": "MARGARINE",
+    "image": null
   },
 ];
 
-const CATEGORIES = ['All', 'Sugar', 'Flour', 'Rice', 'Oil', 'Spaghetti', 'Yeast & Baking', 'Seasonings'];
+const CATEGORIES = ['All', 'Flour', 'Sugar', 'Yeast', 'Rice', 'Margarine'];
 
 export default function ShopPage() {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -187,127 +182,24 @@ export default function ShopPage() {
 
       {/* ═══ SEO Meta Tags ═══ */}
       <Helmet>
-        <title>Shop Wholesale — Sugar, Flour, Rice, Pasta & More | Emmachi Imperial</title>
-        <meta name="description" content="Browse Emmachi Imperial's wholesale product catalog. Dangote Sugar, Golden Penny Flour, Mama Gold Rice, spaghetti, cooking oil & spices. Order via WhatsApp for same-day Lagos delivery." />
+        <title>Shop Wholesale — Flour, Sugar, Yeast, Rice & Margarine | Emmachi Imperial</title>
+        <meta name="description" content="Browse Emmachi Imperial's wholesale product catalog. Flour, sugar, yeast, Gata Rice, Mama Pride Rice and Taroona margarine. Ask our Lagos team for current stock, prices and delivery options." />
         <link rel="canonical" href="https://emmachiimperial.com/shop" />
         <meta property="og:title" content="Wholesale Product Catalog | Emmachi Imperial" />
-        <meta property="og:description" content="Dangote Sugar, Golden Penny Flour, Mama Gold Rice & more. Browse our full wholesale catalog and order via WhatsApp." />
+        <meta property="og:description" content="Flour, sugar, yeast, rice and margarine. Browse our full wholesale catalog and order via WhatsApp." />
         <meta property="og:url" content="https://emmachiimperial.com/shop" />
 
         {/* ═══ JSON-LD: Product Catalog ═══ */}
-        <script type="application/ld+json">{`
-          {
-            "@context": "https://schema.org",
-            "@type": "OfferCatalog",
-            "name": "Emmachi Imperial Wholesale Product Catalog",
-            "description": "Complete wholesale catalog of premium food ingredients distributed by Emmachi Imperial across Lagos and South-West Nigeria.",
-            "url": "https://emmachiimperial.com/shop",
-            "provider": {
-              "@id": "https://emmachiimperial.com/#business"
-            },
-            "numberOfItems": 14,
-            "itemListElement": [
-              {
-                "@type": "Product",
-                "name": "Dangote Refined Sugar",
-                "brand": { "@type": "Brand", "name": "Dangote" },
-                "category": "Sugar",
-                "description": "Premium refined granulated sugar in 50kg wholesale bags. Ideal for bakeries, food processors, and commercial buyers."
-              },
-              {
-                "@type": "Product",
-                "name": "BUA Premium Sugar",
-                "brand": { "@type": "Brand", "name": "BUA" },
-                "category": "Sugar",
-                "description": "High-purity refined sugar from BUA Sugar Refinery. Consistent quality for industrial food and beverage production."
-              },
-              {
-                "@type": "Product",
-                "name": "Golden Penny Sugar",
-                "brand": { "@type": "Brand", "name": "Golden Penny" },
-                "category": "Sugar",
-                "description": "Fortified white refined sugar from Flour Mills of Nigeria. Trusted for commercial baking and confectionery."
-              },
-              {
-                "@type": "Product",
-                "name": "Golden Penny Prime Flour",
-                "brand": { "@type": "Brand", "name": "Golden Penny" },
-                "category": "Flour",
-                "description": "Versatile premium wheat flour in 50kg bags. Superior gluten content for bread, pastries, and general baking."
-              },
-              {
-                "@type": "Product",
-                "name": "Honeywell Bakers' Delight Flour",
-                "brand": { "@type": "Brand", "name": "Honeywell" },
-                "category": "Flour",
-                "description": "Specially formulated bread flour for high volume yield, excellent oven spring, and soft crumb structure."
-              },
-              {
-                "@type": "Product",
-                "name": "Pure Prima Wheat Flour",
-                "brand": { "@type": "Brand", "name": "Dufil Prima" },
-                "category": "Flour",
-                "description": "High-grade NAFDAC registered wheat flour (50kg). Perfect for commercial baking, snacks, and pasta production."
-              },
-              {
-                "@type": "Product",
-                "name": "Honeywell Superfine Flour",
-                "brand": { "@type": "Brand", "name": "Honeywell" },
-                "category": "Flour",
-                "description": "Extra fine white flour ideal for delicate cakes, puff pastries, chin-chin, and confectionery recipes."
-              },
-              {
-                "@type": "Product",
-                "name": "Mama Africa Thai Premium Rice",
-                "brand": { "@type": "Brand", "name": "Mama Africa" },
-                "category": "Rice",
-                "description": "100% sortexed long grain white rice (50kg). Clean, stone-free, and high yielding for catering and retail."
-              },
-              {
-                "@type": "Product",
-                "name": "Royal Stallion Rice",
-                "brand": { "@type": "Brand", "name": "Stallion" },
-                "category": "Rice",
-                "description": "Premium parboiled long grain rice in 50kg bags. Consistent grain length, perfect for restaurants and food vendors."
-              },
-              {
-                "@type": "Product",
-                "name": "Devon Kings Vegetable Oil",
-                "brand": { "@type": "Brand", "name": "PZ Wilmar" },
-                "category": "Cooking Oil",
-                "description": "Pure refined vegetable oil in commercial jerrycans and drums. High smoke point for deep frying and cooking."
-              },
-              {
-                "@type": "Product",
-                "name": "Golden Penny Vegetable Oil",
-                "brand": { "@type": "Brand", "name": "Golden Penny" },
-                "category": "Cooking Oil",
-                "description": "Vitamin A fortified refined cooking oil packaged for commercial kitchens, bakeries, and wholesale resellers."
-              },
-              {
-                "@type": "Product",
-                "name": "Golden Penny Spaghetti",
-                "brand": { "@type": "Brand", "name": "Golden Penny" },
-                "category": "Pasta",
-                "description": "Wholesale cartons of premium durum wheat semolina spaghetti. Non-sticky texture for commercial food service."
-              },
-              {
-                "@type": "Product",
-                "name": "Dangote Spaghetti",
-                "brand": { "@type": "Brand", "name": "Dangote" },
-                "category": "Pasta",
-                "description": "Fast-cooking quality pasta in bulk cartons. High demand staple for retail stores, supermarkets, and institutions."
-              },
-              {
-                "@type": "Product",
-                "name": "STK Royal Active Instant Dry Yeast",
-                "brand": { "@type": "Brand", "name": "STK Royal" },
-                "category": "Yeast & Baking",
-                "description": "High fermentation active dry yeast for rapid dough rising and reliable proofing in commercial bakeries."
-              }
-            ]
-          }
-        `}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'OfferCatalog',
+          name: 'Emmachi Imperial Enterprises Wholesale Product Catalog',
+          url: 'https://emmachiimperial.com/shop',
+          numberOfItems: PRODUCTS.length,
+          itemListElement: PRODUCTS.map(({ name, brand, category, description }) => ({
+            '@type': 'Product', name, brand: { '@type': 'Brand', name: brand }, category, description,
+          })),
+        })}</script>
 
         {/* ═══ JSON-LD: Breadcrumb ═══ */}
         <script type="application/ld+json">{`
@@ -331,8 +223,7 @@ export default function ShopPage() {
         `}</script>
       </Helmet>
       {/* ==================== HERO HEADER (Rectangular / Sharp Aesthetic) ==================== */}
-      <section className="bg-gray-900 text-white py-14 md:py-20 relative overflow-hidden border-b-4 border-emerald-600">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(16,185,129,0.15),transparent_50%)]" />
+      <section className="bg-gray-900 text-white pt-28 pb-14 md:pt-32 md:pb-20 relative overflow-hidden border-b-4 border-emerald-600">
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Rectangular Breadcrumb */}
@@ -343,10 +234,10 @@ export default function ShopPage() {
           </div>
 
           <h1 className="text-3xl sm:text-4xl md:text-6xl font-black tracking-tight text-white uppercase">
-            WHOLESALE <span className="text-emerald-400">PRODUCT CATALOG</span>
+            Wholesale product catalogue
           </h1>
           <p className="mt-3 text-sm sm:text-base md:text-lg text-gray-300 max-w-2xl font-medium leading-relaxed">
-            Direct factory distribution of premium baking ingredients, grains, and food commodities across Lagos and South-West Nigeria.
+            Wholesale baking ingredients, grains and food commodities. Contact our Lagos team for current stock, pricing and delivery options.
           </p>
         </div>
       </section>
@@ -438,11 +329,11 @@ export default function ShopPage() {
                 <div>
                   {/* Image Container - Sharp Rectangular Header */}
                   <div className="relative h-48 w-full bg-gray-100 border-b border-gray-200 overflow-hidden">
-                    <img
+                    {product.image ? (<img
                       src={product.image}
                       alt={product.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
+                    />) : (<div className="h-full flex flex-col items-center justify-center gap-3 px-6 text-center bg-emerald-50 text-emerald-800"><Package className="w-12 h-12" aria-hidden="true" /><span className="text-sm font-semibold">{product.name}</span></div>)}
                     
                     {/* Category Badge - Rectangular */}
                     <span className="absolute top-3 left-3 bg-gray-900 text-white text-[10px] font-mono font-bold px-2.5 py-1 tracking-widest border border-gray-700 uppercase">
@@ -451,7 +342,7 @@ export default function ShopPage() {
 
                     {/* Wholesale Tag */}
                     <span className="absolute bottom-3 right-3 bg-emerald-700 text-white text-[9px] font-bold px-2 py-0.5 tracking-wider uppercase">
-                      50KG / BULK
+                      Ask for pack sizes
                     </span>
                   </div>
 
@@ -460,7 +351,7 @@ export default function ShopPage() {
                     <div className="text-[10px] font-bold text-emerald-700 uppercase tracking-widest mb-1">
                       {product.brand}
                     </div>
-                    <h3 className="text-base font-bold text-gray-900 group-hover:text-emerald-700 transition-colors leading-tight">
+                    <h3 className="text-2xl font-bold text-gray-900 group-hover:text-emerald-700 transition-colors leading-tight">
                       {product.name}
                     </h3>
                     <p className="text-xs text-gray-600 mt-2.5 line-clamp-3 leading-relaxed">
@@ -512,7 +403,7 @@ export default function ShopPage() {
                 <span>Contact Sales</span>
               </a>
               <a
-                href="tel:+2348161220145"
+                href="tel:+2348028851717"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-gray-800 hover:bg-gray-700 border border-gray-700 text-white text-xs font-bold uppercase tracking-wider transition-colors"
               >
                 <Phone className="w-4 h-4 text-emerald-400" />
