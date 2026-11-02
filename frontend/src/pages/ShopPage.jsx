@@ -3,16 +3,22 @@ import { Search, MessageCircle, ArrowRight, Package, Filter, Check, Phone } from
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 
-// Asset Imports
-import fsugar from '../assets/fsugar.png';
-import fflour from '../assets/fflour.png';
+// Product photos supplied for the wholesale catalog
+import dangoteSugar from "../assets/emmachi/Dangote Sugar.jpg.jpeg";
+import buaSugar from "../assets/emmachi/BUA Sugar.jpg.jpeg";
+import goldenPennySugar from "../assets/emmachi/GP Sugar.jpg.jpeg";
+import goldenPennyFlour from "../assets/emmachi/GP Flour.jpg.jpeg";
+import honeywellBakersDelight from "../assets/emmachi/Baker's delight.png";
+import pureFlour from "../assets/emmachi/Pure Flour.png";
+import mixAndBakeFlour from "../assets/emmachi/Mix & Bake.png";
+import mamaPrideRice from "../assets/emmachi/Mama Pride rice.png";
+import stkRoyalYeast from "../assets/emmachi/stk.png";
+import mamaGoldFlour from "../assets/emmachi/Mama Gold Flour.png";
+import diamondFlour from "../assets/emmachi/diamond flour.jpg.jpeg";
+import buaFlour from "../assets/emmachi/BUA Flour.png";
+import dangoteSugarSachets from "../assets/emmachi/Dangote sugar sachets.png";
+import dangoteSalt from "../assets/emmachi/Dagote Salt.jpg.jpeg";
 import frice from '../assets/frice.png';
-
-// Real product images
-import honeywellBakersDelight from '../assets/honeywell-bakers-delight.jpg';
-import goldenPennyFlour from '../assets/golden-penny-flour.jpeg';
-import stkRoyalYeast from '../assets/stk-royal-yeast.jpg';
-import goldenPennySugar from '../assets/golden-penny-sugar.jpg';
 
 const WHATSAPP_NUMBER = '2348028851717';
 
@@ -23,7 +29,7 @@ const PRODUCTS = [
     category: 'Sugar',
     badge: 'SUGAR',
     brand: 'Dangote',
-    image: fsugar,
+    image: dangoteSugar,
     description: 'Premium refined granulated sugar in 50kg wholesale bags. Ideal for bakeries, food processors, and commercial buyers.',
   },
   {
@@ -32,7 +38,7 @@ const PRODUCTS = [
     category: 'Sugar',
     badge: 'SUGAR',
     brand: 'BUA',
-    image: fsugar,
+    image: buaSugar,
     description: 'High-purity refined sugar from BUA Sugar Refinery. Consistent quality for industrial food and beverage production.',
   },
   {
@@ -68,7 +74,7 @@ const PRODUCTS = [
     category: 'Flour',
     badge: 'FLOUR',
     brand: 'Dufil Prima',
-    image: fflour,
+    image: pureFlour,
     description: 'High-grade NAFDAC registered wheat flour (50kg). Perfect for commercial baking, snacks, and pasta production.',
   },
   {
@@ -77,7 +83,7 @@ const PRODUCTS = [
     category: 'Flour',
     badge: 'FLOUR',
     brand: 'Honeywell',
-    image: null,
+    image: mixAndBakeFlour,
     description: 'Mix and Bake flour for commercial baking. Contact us for current pack sizes and pricing.',
   },
   {
@@ -95,7 +101,7 @@ const PRODUCTS = [
     category: 'Rice',
     badge: 'RICE',
     brand: 'Mama Pride',
-    image: frice,
+    image: mamaPrideRice,
     description: 'Premium parboiled long grain rice in 50kg bags. Consistent grain length, perfect for restaurants and food vendors.',
   },
   {
@@ -114,7 +120,7 @@ const PRODUCTS = [
     "brand": "Mama Gold",
     "description": "Mama Gold flour for wholesale buyers. Ask our team for pack sizes and current prices.",
     "badge": "FLOUR",
-    "image": null
+    "image": mamaGoldFlour
   },
   {
     "id": "flr-6",
@@ -123,7 +129,7 @@ const PRODUCTS = [
     "brand": "Diamond",
     "description": "Diamond flour for commercial baking. Contact us for current availability and pricing.",
     "badge": "FLOUR",
-    "image": null
+    "image": diamondFlour
   },
   {
     "id": "yst-2",
@@ -152,9 +158,36 @@ const PRODUCTS = [
     "badge": "MARGARINE",
     "image": null
   },
+  {
+    id: 'flr-7',
+    name: 'BUA Flour',
+    category: 'Flour',
+    badge: 'FLOUR',
+    brand: 'BUA',
+    image: buaFlour,
+    description: 'BUA flour for wholesale buyers and commercial bakeries. Ask our team for available pack sizes and current prices.',
+  },
+  {
+    id: 'sug-4',
+    name: 'Dangote Sugar Sachets',
+    category: 'Sugar',
+    badge: 'SUGAR',
+    brand: 'Dangote',
+    image: dangoteSugarSachets,
+    description: 'Dangote sugar in sachets for retail and food service. Contact our team for pack sizes, availability, and wholesale pricing.',
+  },
+  {
+    id: 'slt-1',
+    name: 'Dangote Salt',
+    category: 'Salt',
+    badge: 'SALT',
+    brand: 'Dangote',
+    image: dangoteSalt,
+    description: 'Dangote salt for wholesale buyers, retailers, and food businesses. Ask our team for available pack sizes and current prices.',
+  },
 ];
 
-const CATEGORIES = ['All', 'Flour', 'Sugar', 'Yeast', 'Rice', 'Margarine'];
+const CATEGORIES = ['All', 'Flour', 'Sugar', 'Yeast', 'Rice', 'Margarine', 'Salt'];
 
 export default function ShopPage() {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -182,11 +215,11 @@ export default function ShopPage() {
 
       {/* ═══ SEO Meta Tags ═══ */}
       <Helmet>
-        <title>Shop Wholesale — Flour, Sugar, Yeast, Rice & Margarine | Emmachi Imperial</title>
-        <meta name="description" content="Browse Emmachi Imperial's wholesale product catalog. Flour, sugar, yeast, Gata Rice, Mama Pride Rice and Taroona margarine. Ask our Lagos team for current stock, prices and delivery options." />
+        <title>Shop Wholesale — Flour, Sugar, Yeast, Rice, Margarine & Salt | Emmachi Imperial</title>
+        <meta name="description" content="Browse Emmachi Imperial's wholesale product catalog. Flour, sugar, yeast, Gata Rice, Mama Pride Rice, Taroona margarine and Dangote Salt. Ask our Lagos team for current stock, prices and delivery options." />
         <link rel="canonical" href="https://emmachiimperial.com/shop" />
         <meta property="og:title" content="Wholesale Product Catalog | Emmachi Imperial" />
-        <meta property="og:description" content="Flour, sugar, yeast, rice and margarine. Browse our full wholesale catalog and order via WhatsApp." />
+        <meta property="og:description" content="Flour, sugar, yeast, rice, margarine and salt. Browse our full wholesale catalog and order via WhatsApp." />
         <meta property="og:url" content="https://emmachiimperial.com/shop" />
 
         {/* ═══ JSON-LD: Product Catalog ═══ */}
@@ -328,11 +361,11 @@ export default function ShopPage() {
               >
                 <div>
                   {/* Image Container - Sharp Rectangular Header */}
-                  <div className="relative h-48 w-full bg-gray-100 border-b border-gray-200 overflow-hidden">
+                  <div className="relative h-48 w-full bg-white border-b border-gray-200 overflow-hidden">
                     {product.image ? (<img
                       src={product.image}
                       alt={product.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500"
                     />) : (<div className="h-full flex flex-col items-center justify-center gap-3 px-6 text-center bg-emerald-50 text-emerald-800"><Package className="w-12 h-12" aria-hidden="true" /><span className="text-sm font-semibold">{product.name}</span></div>)}
                     
                     {/* Category Badge - Rectangular */}
